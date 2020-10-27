@@ -3,6 +3,7 @@
     <div class="body-container">
       <navbar></navbar>
       <land></land>
+      <features></features>
     </div>
   </div>
 </template>
@@ -10,35 +11,26 @@
 <script>
 import navbar from "@/components/Navbar"
 import land from "@/components/Home/Land"
+import features from "@/components/Home/Features"
+
 export default {
   name: "Home",
   components: {
     navbar,
-    land
+    land,
+    features
   }
 }
 </script>
 
 <style scoped lang="scss">
-.index{
+.index {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, $brown-200 90%),
   url(../assets/Speedwagon_sepia.jpg) no-repeat $brown-200;
   background-position: 0px -130px;
   background-size: 100vw 100vh;
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
 
-  &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.288);
-    outline: 1px solid slategrey;
-    border-radius: 50px;
-  }
-  .body-container{
+  .body-container {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
