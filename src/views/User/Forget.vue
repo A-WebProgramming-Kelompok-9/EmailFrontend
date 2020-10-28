@@ -1,14 +1,13 @@
 <template>
-<div>
-
-</div>
+  <div>
+    Forget
+  </div>
 </template>
 
 <script>
 export default {
-name: "Forget",
-components:{
-}
+  name: "Forget",
+  components: {}
 }
 </script>
 

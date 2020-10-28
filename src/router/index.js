@@ -43,7 +43,7 @@ const routes = [
             path: 'create',
             component: () => import('../views/Dashboard/Create'),
         }, {
-            path: 'setting',
+            path: 'settings',
             component: () => import('../views/Dashboard/Settings'),
         }]
     }

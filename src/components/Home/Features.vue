@@ -8,7 +8,7 @@
 
 <script>
 import featureitem from "@/components/Home/Feature-Items"
-import {content } from "@/data/features.json"
+import {features} from "@/data/features.json"
 export default {
   name: "Features",
   components: {
@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      items: content
+      items: features
     }
   },
 }

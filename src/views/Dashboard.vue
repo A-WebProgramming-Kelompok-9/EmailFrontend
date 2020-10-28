@@ -1,8 +1,7 @@
 <template>
-  <div>
+  <div class="dashboard">
     <sidebar></sidebar>
     <div>
-      <search></search>
       <router-view></router-view>
     </div>
   </div>
@@ -10,16 +9,16 @@
 
 <script>
 import sidebar from "@/components/Sidebar"
-import search from "@/components/Dashboard/Search"
 export default {
   name: "Dashboard",
   components: {
     sidebar,
-    search
   }
 }
 </script>
 
 <style scoped lang=scss>
-
+.dashboard{
+  display: flex;
+}
 </style>

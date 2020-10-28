@@ -3,7 +3,7 @@
     <router-link class="navbar-brand" to="/"> Speedwagon Mail</router-link>
     <div class="ml-auto">
       <router-link to="/user/login/" class="btn btn-dark mr-2">Login</router-link>
-      <router-link to="/" class="btn btn-outline-light mr-2">Register</router-link>
+      <router-link to="/user/register" class="btn btn-outline-light mr-2">Register</router-link>
     </div>
   </div>
 </template>
