@@ -1,10 +1,9 @@
 <template>
   <div :class="'feature '+ content.rev">
     <img :src="content.image" alt="">
-    <div class="mx-5 my-auto">
+    <div class="mx-5 my-auto formatted">
       <h4>{{content.title}}</h4>
-      s'Mail can be access via browser from your smartphone, <br />
-      you just need to have an account then login by using it.
+      {{content.content}}
     </div>
   </div>
 </template>
@@ -28,5 +27,8 @@ export default {
 }
 .rev{
   flex-direction: row-reverse;
+}
+.formatted{
+  white-space: pre;
 }
 </style>

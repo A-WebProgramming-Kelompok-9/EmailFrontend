@@ -2,7 +2,7 @@
   <div class="features">
     <h1 class="mx-auto">Features</h1>
     <h4 class="mx-auto">Here are the reasons why you should use Smail</h4>
-    <featureitem v-for="item in items" :content="item"></featureitem>
+    <featureitem :key="item.title" v-for="item in items" :content="item"></featureitem>
   </div>
 </template>
 
