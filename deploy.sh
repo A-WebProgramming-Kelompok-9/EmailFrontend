@@ -15,7 +15,7 @@ git init
 git add --all
 git checkout --orphan gh-pages
 git commit -m "gh-pages"
-git remote add origin https://github.com/yuriko192/emailclient-vue
+git remote add origin https://github.com/yuriko192/EmailFrontend
 git push origin gh-pages -f
 
 cd -
