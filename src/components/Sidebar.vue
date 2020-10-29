@@ -74,7 +74,7 @@ export default {
 .sidebar-wrapper {
   height: 100vh;
   width: 250px;
-  background-color: $brown-200 !important;
+  background-color: $brown-200;
   color: white;
   display: flex;
   flex-direction: column;

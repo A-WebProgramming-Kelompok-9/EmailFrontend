@@ -1,6 +1,6 @@
 <template>
   <div :class="'feature '+ content.rev">
-    <img :src="content.image" alt="">
+    <img :src="import(content.image)" alt="">
     <div class="mx-5 my-auto formatted">
       <h4>{{content.title}}</h4>
       {{content.content}}
