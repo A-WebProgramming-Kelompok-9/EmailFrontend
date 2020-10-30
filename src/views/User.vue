@@ -1,7 +1,6 @@
 <template>
-  <div>
-    User
-    <router-view></router-view>
+  <div class="UserConteiner">
+    <router-view class="Userview"></router-view>
   </div>
 </template>
 
@@ -13,5 +12,15 @@ export default {
 </script>
 
 <style scoped lang=scss>
-
+.UserConteiner{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  .Userview{
+    width: 600px;
+    padding: 20px;
+  }
+}
 </style>
