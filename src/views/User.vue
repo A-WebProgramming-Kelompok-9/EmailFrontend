@@ -1,11 +1,6 @@
 <template>
-<<<<<<< HEAD
   <div class="UserConteiner">
     <router-view class="Userview"></router-view>
-=======
-  <div>
-    <router-view></router-view>
->>>>>>> 4edd5e1... master
   </div>
 </template>
 

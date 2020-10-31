@@ -1,9 +1,5 @@
 <template>
   <div>
-<<<<<<< HEAD
-    Login
-    <textinp name="email" type="email" placeholder="Email"></textinp>
-=======
     <div id="main">
         <div class="loginwith">
             <h4>Login</h4>
@@ -46,7 +42,6 @@
             <a type="button" class="btn btn-link" href="/User/Register/" style="width: 100px; margin:auto">Sign Up</a>
         </div>
     </div>
->>>>>>> 4edd5e1... master
   </div>
 </template>
 
