@@ -21,12 +21,10 @@
         <div class="spacer"></div>
         <form class="login-form">
             <div class="form-group">
-                <label for="UsernameBox">Username</label>
-                <input type="text" class="form-control" id="UsernameBox" placeholder="Username">
+                <textinp name="username" type="text" placeholder="Username"></textinp>
             </div>
             <div class="form-group">
-                <label for="PasswordBox">Password</label>
-                <input type="password" class="form-control" id="PasswordBox" placeholder="Password">
+                <textinp name="password" type="password" placeholder="Password"></textinp>
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="KeepSignedIn" />
