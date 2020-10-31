@@ -1,25 +1,26 @@
 <template>
   <div class="home">
-    <button @click="toggleside">Toggle sidebar: {{this.$store.state.sided}}</button>
+    <searchbar></searchbar>
     Home
   </div>
 </template>
 
 <script>
+import searchbar from "@/components/Dashboard/Search"
+
 export default {
   name: "Home",
-  components: {},
-  methods: {
-    toggleside() {
-      this.$store.commit("toggleside")
-      console.log(this.$store.state.sided)
-    }
+  components: {
+    searchbar
   },
+
 }
 </script>
 
 <style scoped lang=scss>
-.home{
-background-color: $brown-100;
+.home {
+  background-color: $brown-100;
+  display: flex;
+  flex-direction: column;
 }
 </style>

@@ -9,7 +9,7 @@
 export default {
   name: "TextInputGroup",
   props: ["name","placeholder","type"],
-  components: {}
+  components: {},
 }
 </script>
 
