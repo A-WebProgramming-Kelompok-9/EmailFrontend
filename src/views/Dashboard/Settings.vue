@@ -1,5 +1,8 @@
 <template>
    <div id="maincontent">
+     <div class="search">
+        <searchbar></searchbar>
+     </div>
     <div id="settings" class="p-3">
           <h1>Settings</h1>
           <hr />
@@ -66,16 +69,23 @@
 </template>
 
 <script>
-import sidebar from "@/components/Sidebar"
+import searchbar from "@/components/Dashboard/Search"
 export default {
   name: "Settings",
   components: {
-    sidebar,
-  }
+    searchbar
+  },
 }
 </script>
 
 <style scoped lang=scss>
+.search {
+  background-color: $brown-100;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 71.7%;
+}
 #maincontent {
   display: flex;
   flex-direction: column;
