@@ -18,9 +18,15 @@ export default {
   height: 100vh;
   align-items: center;
   justify-content: center;
+  background-color: $brown-200;
   .Userview{
-    width: 600px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
     padding: 20px;
+    background-color: $brown-400;
+    border-radius: 10px;
+    color: white;
   }
 }
 </style>
