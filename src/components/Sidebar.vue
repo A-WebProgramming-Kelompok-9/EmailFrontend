@@ -72,6 +72,9 @@ export default {
 
 <style scoped lang=scss>
 .sidebar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 250px;
   background-color: $brown-200;

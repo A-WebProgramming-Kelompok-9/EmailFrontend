@@ -6,11 +6,10 @@
         <input v-if="clicked" type="text" class="searchinp h-full" id="dashboardsearchinp" @focusout="clicked=false">
       </transition>
       <transition name="inputicon">
-        <label v-if="!clicked" for="dashboardsearchinp" @click="clicked=true">
+        <label v-if="!clicked" for="dashboardsearchinp" @click="clicked=true" class="searchicon">
           <BIcon icon="search"></BIcon>
         </label>
       </transition>
-
     </div>
     <router-link class="btn btn-dark" to="/dashboard/10/Create">
       <BIcon icon="file-earmark-plus"></BIcon>
@@ -56,7 +55,7 @@ export default {
     border: none;
   }
 
-  label {
+  .searchicon {
     margin: 0;
     position: absolute;
     left: 50%;
@@ -69,6 +68,7 @@ export default {
     padding-top: 4px;
     text-align: center;
   }
+
 }
 $animation-duration: 1s;
 .inputicon-enter-active {
@@ -86,18 +86,33 @@ $animation-duration: 1s;
     border-radius: 2rem;
   }
   100% {
-    width: 100%;
-    left: 50%;
+    left: 20px;
+    width: 2rem;
     border-radius: 2rem;
   }
 }
 
-.inputbox-enter-active, .inputbox-leave-active {
-  transition: all $animation-duration;
-}
-.inputbox-enter, .inputbox-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
+.inputbox-enter-active {
+  animation: custom2 $animation-duration;
 }
 
+.inputbox-leave-active {
+  animation: custom2 $animation-duration reverse;
+}
+
+@keyframes custom2 {
+  from{
+    opacity: 0;
+  }
+  25%{
+    opacity: 0;
+    width: 0;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+
+  }
+}
 
 </style>
