@@ -1,9 +1,7 @@
 <template>
    <div id="maincontent">
         <searchbar></searchbar>
-      <div class="side">
         <sidebar></sidebar>
-      </div>
     <div id="settings" class="p-3">
           <h1>Settings</h1>
           <hr />
@@ -18,9 +16,9 @@
             <div id="accinfo">
               <p>Dio@swagon.com</p>
               <p>Jonathan Joestar</p>
-              <a href="#Picture" class="btn-link">Change your Picture</a>
-              <a href="#Background" class="btn-link"
-                >Change your Dashboard Background</a
+              <router-link to=".." class="btn-link">Change your Picture</router-link>
+              <router-link to=".." class="btn-link"
+                >Change your Dashboard Background</router-link
               >
             </div>
           </div>
@@ -43,9 +41,9 @@
                 type="password"
                 placeholder="Confirm New Password"
               />
-              <a type="button" class="btn btn-dark" href="..">
+              <router-link  to=".." type="button" class="btn btn-dark">
                 Change Password
-              </a>
+              </router-link>
             </div>
           </div>
           <hr />
@@ -57,13 +55,13 @@
                 type="text"
                 placeholder="New Username"
               />
-              <a
+              <router-link
+                to=".."
                 type="button"
                 class="btn btn-dark input-group-append"
-                href=".."
               >
                 Change Username
-              </a>
+              </router-link>
             </div>
           </div>
           <hr />
