@@ -1,24 +1,27 @@
 <template>
    <div id="maincontent">
-     <div class="search">
         <searchbar></searchbar>
-     </div>
+      <div class="side">
+        <sidebar></sidebar>
+      </div>
     <div id="settings" class="p-3">
           <h1>Settings</h1>
           <hr />
           <div id="Myaccount-area">
             <h5>my Account:</h5>
             <img
-                src="@/assets/Dio_Yeah.jpg"
-                alt="logo"
-                class="rounded-circle my-auto"
-                style="width: 100px; height: 100px"
-          />
+              src="@/assets/Dio_Yeah.jpg"
+              alt="Profile Image"
+              class="rounded-circle my-auto"
+              style="width: 100px; height: 100px"
+            />
             <div id="accinfo">
-              <p>xxxxxxxxxxxxx@speedwagon.com</p>
+              <p>Dio@swagon.com</p>
               <p>Jonathan Joestar</p>
-              <a href="#Picture">Change your Picture</a>
-              <a href="#Background">Change your Dashboard Background</a>
+              <a href="#Picture" class="btn-link">Change your Picture</a>
+              <a href="#Background" class="btn-link"
+                >Change your Dashboard Background</a
+              >
             </div>
           </div>
           <hr />
@@ -40,7 +43,7 @@
                 type="password"
                 placeholder="Confirm New Password"
               />
-              <a type="button" class="btn btn-primary" href="..">
+              <a type="button" class="btn btn-dark" href="..">
                 Change Password
               </a>
             </div>
@@ -56,7 +59,7 @@
               />
               <a
                 type="button"
-                class="btn btn-primary input-group-append"
+                class="btn btn-dark input-group-append"
                 href=".."
               >
                 Change Username
@@ -64,8 +67,8 @@
             </div>
           </div>
           <hr />
-        </div>
-        </div>
+      </div>
+    </div>
 </template>
 
 <script>
@@ -79,37 +82,46 @@ export default {
 </script>
 
 <style scoped lang=scss>
-.search {
-  background-color: $brown-100;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  width: 71.7%;
-}
 #maincontent {
   display: flex;
   flex-direction: column;
-  width: calc(100% + 500px);
-  height: 100%;
-  background-color: whitesmoke;
-}
+  width: 100%;
+  background-color: $brown-200;
+
+  .btn-link {
+    color: $brown-100;
+  }
 #settings {
     display: flex;
-    position: relative;
-    right: 200px;
     flex-direction: column;
     align-items: flex-start;
     height: 700px;
     border: solid 1px gray;
+    border-radius: 15px;
     width: 800px;
     margin: 0 auto;
+    color: white;
+    background-color: $brown-400;
+    .form-control {
+      background-color: rgba($color: white, $alpha: 0.6);
+      color: black;
+      &::placeholder {
+        color: $gray-200;
+      }
+    }
     #Myaccount-area {
       display: flex;
+      #profile-pic {
+        height: 100px;
+        width: 100px;
+        border-radius: 100%;
+        background-color: black;
+      }
       #accinfo {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        padding-left: 15px;
+        padding-left: 20px;
         p {
           margin: 0;
         }
@@ -139,4 +151,5 @@ export default {
       }
     }
   }
+}
 </style>
