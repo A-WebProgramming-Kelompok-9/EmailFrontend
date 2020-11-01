@@ -72,12 +72,9 @@ Best Regards, Mrs. Sandra Ben
 </template>
 
 <script>
-import Textinp from "@/components/TextInputGroup.vue";
 export default {
   name: "View",
-  components: {
-    Textinp,
-  },
+  components: {},
 };
 </script>
 
