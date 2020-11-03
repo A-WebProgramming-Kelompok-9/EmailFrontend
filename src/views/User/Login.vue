@@ -4,18 +4,20 @@
         <div class="loginwith">
             <h4>Login</h4>
             <div class="loginopt my-4">
-                <a type="button" class="btn btn-link" href="/Dashboard/">
-                    <span class="fa fa-facebook"></span>
-                    Facebook
-                </a>
-                <a type="button" class="btn btn-link" href="/DashBoard/">
-                    <span class="fa fa-twitter"></span>
-                    Twitter
-                </a>
-                <a type="button" class="btn btn-link" href="/DashBoard/">
-                    <span class="fa fa-google"></span>
-                    Google
-                </a>
+                <router-link to="../../" class="btn btn-link">
+                  <span class="fa fa-facebook"></span>
+                  Facebook
+                </router-link>
+
+                <router-link to="../../" class="btn btn-link">
+                  <span class="fa fa-twitter"></span>
+                  Twitter
+                </router-link>
+
+                <router-link to="../../" class="btn btn-link">
+                  <span class="fa fa-google"></span>
+                  Google
+                </router-link>
             </div>
         </div>
         <div class="spacer"></div>
@@ -30,14 +32,14 @@
                 <input type="checkbox" class="form-check-input" id="KeepSignedIn" />
                 <label class="form-check-label" for="KeepSignedIn">Remember me</label>
             </div>
-            <a type="button" class="btn btn-outline-light flex-end" href="/Dashboard/">Login</a>
+            <router-link to="../../" class="btn btn-outline-light flex-end">Login</router-link>
         </form>
         <div class="alternate">
             <div class="forgot">
-                <a type="submit" class="btn btn-link" href="/User/Forgot/#Username">Forgot Username?</a>
-                <a type="submit" class="btn btn-link" href="/User/Forgot/#Password">Forgot Password?</a>
+                <router-link to="/User/Forgot/#Username" class="btn btn-link">Forgot Username?</router-link>
+                <router-link to="/User/Forgot/#Password" class="btn btn-link">Forgot password?</router-link>
             </div>
-            <a type="button" class="btn btn-link" href="/User/Register/" style="width: 100px; margin:auto">Sign Up</a>
+            <router-link to="/User/Register/" class="btn btn-link" style="width:100px; margin:auto">Sign Up</router-link>
         </div>
     </div>
   </div>
