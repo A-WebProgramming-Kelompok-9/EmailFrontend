@@ -4,17 +4,17 @@
         <div class="loginwith">
             <h4>Login</h4>
             <div class="loginopt my-4">
-                <router-link to="../../" class="btn btn-link">
+                <router-link to="/Dashboard/0/" class="btn btn-link">
                   <span class="fa fa-facebook"></span>
                   Facebook
                 </router-link>
 
-                <router-link to="../../" class="btn btn-link">
+                <router-link to="/Dashboard/0/" class="btn btn-link">
                   <span class="fa fa-twitter"></span>
                   Twitter
                 </router-link>
 
-                <router-link to="../../" class="btn btn-link">
+                <router-link to="/Dashboard/0/" class="btn btn-link">
                   <span class="fa fa-google"></span>
                   Google
                 </router-link>
@@ -32,12 +32,12 @@
                 <input type="checkbox" class="form-check-input" id="KeepSignedIn" />
                 <label class="form-check-label" for="KeepSignedIn">Remember me</label>
             </div>
-            <router-link to="../../" class="btn btn-outline-light flex-end">Login</router-link>
+            <router-link to="/Dashboard/0/" class="btn btn-outline-light flex-end">Login</router-link>
         </form>
         <div class="alternate">
             <div class="forgot">
-                <router-link to="/User/Forgot/#Username" class="btn btn-link">Forgot Username?</router-link>
-                <router-link to="/User/Forgot/#Password" class="btn btn-link">Forgot password?</router-link>
+                <router-link to="/User/Forget/" class="btn btn-link">Forgot Username?</router-link>
+                <router-link to="/User/Forget/" class="btn btn-link">Forgot password?</router-link>
             </div>
             <router-link to="/User/Register/" class="btn btn-link" style="width:100px; margin:auto">Sign Up</router-link>
         </div>
