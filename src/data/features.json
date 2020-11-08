@@ -1,28 +1,20 @@
 {
   "features": [
     {
-      "image": "@/assets/Rainbow_Yeah.jpg",
       "title": "No need to own a computer",
-      "content": "s'Mail can be access via browser from your smartphone,\nyou just need to have an account then login by using it.",
-      "rev" : ""
+      "content": "s'Mail can be access via browser from your smartphone,\nyou just need to have an account then login by using it."
     },
     {
-      "image": "@/assets/Speedwagon_2.jpg",
       "title": "Easy Access",
-      "content": "Access your email directly as long as you have internet\naccess, just login and youre good to go",
-      "rev" : "rev"
+      "content": "Access your email directly as long as you have internet\naccess, just login and youre good to go"
     },
     {
-      "image": "@/assets/Speedwagon.jpg",
       "title": "Backup and Security",
-      "content": "All your information and mails are kept safe and protected\nfrom any malicious attempt while being ready 24/7",
-      "rev" : ""
+      "content": "All your information and mails are kept safe and protected\nfrom any malicious attempt while being ready 24/7"
     },
     {
-      "image": "@/assets/Speedwagon.jpg",
       "title": "Stonks",
-      "content": "Stonks",
-      "rev" : "rev"
+      "content": "Stonks"
     }
   ]
 }

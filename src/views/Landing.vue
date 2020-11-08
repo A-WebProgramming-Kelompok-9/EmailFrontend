@@ -9,15 +9,11 @@
 
 <script>
 import navbar from "@/components/Navbar"
-import land from "@/components/Home/Land"
-import features from "@/components/Home/Features"
 
 export default {
   name: "Temp",
   components: {
     navbar,
-    land,
-    features
   },
 }
 </script>
@@ -54,6 +50,7 @@ export default {
       grid-template-areas: "text image";
       align-items: center;
       height: calc(100% - 90px);
+      width: 100%;
       .text-item{
         grid-area: text;
         padding: 0 25% 0 50px;
