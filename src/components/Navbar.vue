@@ -65,6 +65,9 @@ export default {
 
   .navbar-brand{
     font-size: 1.5rem;
+    &:hover{
+      color: rgba(black,0.6);
+    }
     img{
       width: 3rem;
     }

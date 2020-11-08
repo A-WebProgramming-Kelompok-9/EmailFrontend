@@ -6,7 +6,7 @@
       </div>
       <p>S’Mail is sort of an email client application that enable configuring one or more email addresses to receive, read, compose and send emails from one user to another.</p>
       <div class="btnlist">
-        <router-link to="/user/login/" class="btn btn-outline-light">About Us</router-link>
+        <router-link to="" class="btn btn-outline-light">About Us</router-link>
         <router-link to="/user/register" class="btn btn-dark">Join Us</router-link>
       </div>
     </div>
@@ -33,6 +33,7 @@ export default {
   }
 }
 .image-item{
+  margin-right: 0;
   .image{
     width: 50vw;
   }

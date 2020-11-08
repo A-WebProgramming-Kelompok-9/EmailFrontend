@@ -82,7 +82,7 @@ export default {
       .image-item{
         grid-area: image;
         margin-left: auto;
-        margin-right: 0;
+
       }
     }
   }
