@@ -4,7 +4,7 @@
       <div class="item-title">
         <h1> What Is Smail</h1>
       </div>
-      <p>Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet</p>
+      <p>S’Mail is sort of an email client application that enable configuring one or more email addresses to receive, read, compose and send emails from one user to another.</p>
       <div class="btnlist">
         <router-link to="/user/login/" class="btn btn-outline-light">About Us</router-link>
         <router-link to="/user/register" class="btn btn-dark">Join Us</router-link>
@@ -25,7 +25,6 @@ export default {
 
 <style scoped lang=scss>
 .text-item{
-grid-area: text;
   .item-title{
     h1:before{
       content: "What Is Smail";
@@ -34,7 +33,9 @@ grid-area: text;
   }
 }
 .image-item{
-  grid-area: image;
+  .image{
+    width: 50vw;
+  }
 }
 .btnlist{
   display: flex;

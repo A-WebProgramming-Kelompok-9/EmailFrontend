@@ -55,6 +55,7 @@ export default {
       align-items: center;
       height: calc(100% - 90px);
       .text-item{
+        grid-area: text;
         padding: 0 25% 0 50px;
         h1{
           position: relative;
@@ -79,11 +80,9 @@ export default {
         }
       }
       .image-item{
+        grid-area: image;
         margin-left: auto;
         margin-right: 0;
-        .image{
-          width: 50vw;
-        }
       }
     }
   }

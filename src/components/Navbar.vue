@@ -4,9 +4,9 @@
       <img src="@/assets/SPW LOGO.png" alt="">
       Speedwagon Mail</router-link>
     <div class="content">
-      <router-link to="/home" class="btn active">Home</router-link>
-      <router-link to="/home" class="btn">Features</router-link>
-      <router-link to="/home" class="btn">Reviews</router-link>
+      <router-link to="/home" :class="'btn '+navbar_class(0)" @click.native="active_page = 0">Home</router-link>
+      <router-link to="/features" :class="'btn '+navbar_class(1)" @click.native="active_page = 1">Features</router-link>
+      <router-link to="/reviews" :class="'btn '+navbar_class(2)" @click.native="active_page = 2">Reviews</router-link>
     </div>
     <div class="content login">
       <router-link to="/user/login/" class="btn btn-dark">Login</router-link>
@@ -17,7 +17,35 @@
 
 <script>
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  data() {
+    return {
+      active_page: 0
+    }
+  },
+  methods: {
+    navbar_class(val) {
+      if(this.active_page == val){
+        return "active";
+      }
+      else{
+        return "";
+      }
+    }
+  },
+  created() {
+    switch (this.$route.path) {
+      case '/home':
+        this.active_page = 0
+            break;
+      case '/features':
+        this.active_page = 1
+        break;
+      case '/reviews':
+        this.active_page = 2
+        break;
+    }
+  }
 }
 </script>
 
@@ -46,10 +74,9 @@ export default {
     margin: auto 0;
     .btn {
       margin: 0 10px;
-
+      box-shadow: none;
       &.active {
         color: white;
-
         &::after {
           content: "";
           background: white;
