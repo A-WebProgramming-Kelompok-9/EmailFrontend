@@ -31,6 +31,7 @@ export default {
       content: "";
       position: absolute;
       opacity: 0.5;
+      z-index: 0;
       top: 0;
       left: 0;
       bottom: 0;
@@ -45,23 +46,43 @@ export default {
     width: 100vw;
     height: 100vh;
     .item-conteiner{
-      padding-top: 90px;
+      position: absolute;
+      z-index: 99;
+      margin-top: 90px;
       display: grid;
       grid-template-columns: 40% 60%;
       grid-template-areas: "text image";
       align-items: center;
-      height: 100%;
+      height: calc(100% - 90px);
       .text-item{
         padding: 0 25% 0 50px;
         h1{
+          position: relative;
           font-family: Anton;
           margin-bottom: 50px;
           font-size: 4rem;
+          z-index: 1;
+          &:before{
+            z-index: -1;
+            color: white;
+            opacity: .3;
+            white-space: nowrap;
+            font-size: 6rem;
+            position: absolute;
+            bottom: 2rem;
+          }
         }
         p{
           font-family: Roboto;
           margin-bottom: 50px;
           font-size: 1.2rem;
+        }
+      }
+      .image-item{
+        margin-left: auto;
+        margin-right: 0;
+        .image{
+          width: 50vw;
         }
       }
     }

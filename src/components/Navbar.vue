@@ -1,6 +1,8 @@
 <template>
   <div class="navibar">
-    <router-link class="navbar-brand" to="/"> Speedwagon Mail</router-link>
+    <router-link class="navbar-brand" to="/">
+      <img src="@/assets/SPW LOGO.png" alt="">
+      Speedwagon Mail</router-link>
     <div class="content">
       <router-link to="/home" class="btn active">Home</router-link>
       <router-link to="/home" class="btn">Features</router-link>
@@ -35,6 +37,9 @@ export default {
 
   .navbar-brand{
     font-size: 1.5rem;
+    img{
+      width: 3rem;
+    }
   }
 
   .content {
