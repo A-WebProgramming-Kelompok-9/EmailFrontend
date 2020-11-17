@@ -66,7 +66,6 @@ p{
 #main{
   display: flex;
   flex-direction: column;
-  width: 450px;
   height: 680px;
   background-color: $brown-400;
   color: white;
