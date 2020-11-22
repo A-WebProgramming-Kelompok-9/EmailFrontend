@@ -10,12 +10,12 @@
                 </router-link>
 
                 <router-link to="/Dashboard/0/" class="btn btn-link">
-                  <span class="fa fa-twitter"></span>
+                  <twitter-icon></twitter-icon>
                   Twitter
                 </router-link>
 
                 <router-link to="/Dashboard/0/" class="btn btn-link">
-                  <span class="fa fa-google"></span>
+                  <google-icon></google-icon>
                   Google
                 </router-link>
             </div>
@@ -47,12 +47,22 @@
 
 <script>
 import textinp from "@/components/TextInputGroup"
+<<<<<<< HEAD
 import {FacebookIcon} from 'vue-simple-icon'
+=======
+import {FacebookIcon,GoogleIcon,TwitterIcon} from 'vue-simple-icons'
+>>>>>>> c9616d5
 export default {
   name: "Login",
   components: {
     textinp,
+<<<<<<< HEAD
     FacebookIcon
+=======
+    FacebookIcon,
+    TwitterIcon,
+    GoogleIcon
+>>>>>>> c9616d5
   }
 }
 </script>
