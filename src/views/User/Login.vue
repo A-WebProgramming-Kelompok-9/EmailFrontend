@@ -5,7 +5,7 @@
             <h4>Login</h4>
             <div class="loginopt my-4">
                 <router-link to="/Dashboard/0/" class="btn btn-link">
-                  <span class="fa fa-facebook"></span>
+                  <facebook-icon></facebook-icon>
                   Facebook
                 </router-link>
 
@@ -47,10 +47,12 @@
 
 <script>
 import textinp from "@/components/TextInputGroup"
+import {FacebookIcon} from 'vue-simple-icon'
 export default {
   name: "Login",
   components: {
-    textinp
+    textinp,
+    FacebookIcon
   }
 }
 </script>
