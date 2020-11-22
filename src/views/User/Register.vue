@@ -8,15 +8,15 @@
       <h5>Register With</h5>
       <div class="registerwith">
         <router-link to="/Dashboard/0" class="btn btn-link">
-          <BIcon icon="" aria-hidden="true"></BIcon>
+          <FacebookIcon></FacebookIcon>
           Facebook
           </router-link>
         <router-link to="/Dashboard/0" class="btn btn-link">
-          <BIcon icon="" aria-hidden="true"></BIcon>
+          <TwitterIcon></TwitterIcon>
           Twitter
           </router-link>
         <router-link to="/Dashboard/0" class="btn btn-link">
-          <BIcon icon="" aria-hidden="true"></BIcon>
+          <GoogleIcon></GoogleIcon>
           Google
           </router-link>
       </div>
@@ -59,10 +59,14 @@
 
 <script>
 import textinp from "@/components/TextInputGroup"
+import { FacebookIcon, TwitterIcon, GoogleIcon } from 'vue-simple-icons'
 export default {
   name: "Register",
   components: {
-    textinp
+    textinp,
+    FacebookIcon,
+    TwitterIcon,
+    GoogleIcon
   }
 }
 </script>
