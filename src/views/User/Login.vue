@@ -47,22 +47,14 @@
 
 <script>
 import textinp from "@/components/TextInputGroup"
-<<<<<<< HEAD
-import {FacebookIcon} from 'vue-simple-icon'
-=======
 import {FacebookIcon,GoogleIcon,TwitterIcon} from 'vue-simple-icons'
->>>>>>> c9616d5
 export default {
   name: "Login",
   components: {
     textinp,
-<<<<<<< HEAD
-    FacebookIcon
-=======
     FacebookIcon,
     TwitterIcon,
     GoogleIcon
->>>>>>> c9616d5
   }
 }
 </script>
