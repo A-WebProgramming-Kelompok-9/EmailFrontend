@@ -76,7 +76,8 @@ html {
   background-color: $brown-200;
 }
 #body {
-  height: 100vh;
+  margin-top: 150px;
+  width: 2000px;
   display: flex;
   flex-direction: column;
   background-color: $brown-200 !important;
@@ -116,7 +117,6 @@ html {
     margin-top: 20px;
   
   }
-
   .register-form {
     display: flex;
     padding: 20px;
