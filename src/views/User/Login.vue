@@ -5,17 +5,17 @@
             <h4>Login</h4>
             <div class="loginopt my-4">
                 <router-link to="/Dashboard/0/" class="btn btn-link">
-                  <span class="fa fa-facebook"></span>
+                  <facebook-icon></facebook-icon>
                   Facebook
                 </router-link>
 
                 <router-link to="/Dashboard/0/" class="btn btn-link">
-                  <span class="fa fa-twitter"></span>
+                  <twitter-icon></twitter-icon>
                   Twitter
                 </router-link>
 
                 <router-link to="/Dashboard/0/" class="btn btn-link">
-                  <span class="fa fa-google"></span>
+                  <google-icon></google-icon>
                   Google
                 </router-link>
             </div>
@@ -47,10 +47,14 @@
 
 <script>
 import textinp from "@/components/TextInputGroup"
+import {FacebookIcon,GoogleIcon,TwitterIcon} from 'vue-simple-icons'
 export default {
   name: "Login",
   components: {
-    textinp
+    textinp,
+    FacebookIcon,
+    TwitterIcon,
+    GoogleIcon
   }
 }
 </script>
