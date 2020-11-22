@@ -16,9 +16,13 @@ export default {
 <style scoped lang=scss>
 
 .inputarea{
+  *{
+    color: white;
+  }
   position: relative; // biar label bisa pake absolute
-  margin: 2rem auto 1rem; //pastiin atasnya ada 1 rem kosong buat tulisannya naek
+  margin: 3rem auto 1rem; //pastiin atasnya ada 1 rem kosong buat tulisannya naek
   width: 100%;
+  border-bottom: dashed 1px white;
 
   //garis bawahnya
   &:after{
@@ -37,7 +41,8 @@ export default {
   //bagian animasinya
   &:focus-within{
     .label{
-      transform: translateY(-100%) scale(1);
+      transform: translateY(-100%);
+      font-size: 1rem;
     }
     &:after{
       transform: scaleX(1);
@@ -58,14 +63,16 @@ export default {
   position: absolute;
   z-index: 1;
   left: 0;
-  transform: scale(1.2);
+  bottom: 2px;
+  font-size: 1.2rem;
   transition: all .5s;
 }
 
 //biar textnya ga turun lagi kalo ada tulisan
 .inputarea:focus-within .label,
 .input:not(:placeholder-shown) + .label {
-  transform: translateY(-100%) scale(1);
+  transform: translateY(-100%) ;
+  font-size: 1rem;
   opacity: 1;
 }
 </style>
