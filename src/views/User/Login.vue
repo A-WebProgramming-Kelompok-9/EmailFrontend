@@ -9,12 +9,12 @@
         </router-link>
 
         <router-link to="/Dashboard/0/" class="btn btn-link">
-          <span class="fa fa-twitter"></span>
+          <twitter-icon></twitter-icon>
           Twitter
         </router-link>
 
         <router-link to="/Dashboard/0/" class="btn btn-link">
-          <span class="fa fa-google"></span>
+          <google-icon></google-icon>
           Google
         </router-link>
       </div>
