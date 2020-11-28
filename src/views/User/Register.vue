@@ -1,5 +1,4 @@
 <template>
-<div id="body">
   <div id="main">
     <h4>Start Using Smail</h4>
       <p style="font-size: 15px">
@@ -20,41 +19,35 @@
           Google
           </router-link>
       </div>
-      <div class="spacer"><br><br></div>
-      <form class="register-form">
-        <div class="form-group">
-          <textinp name="alt-email" type="email" placeholder="Alternate Email"></textinp>
-        </div>
-        <div class="form-group">
-          <textinp name="username" type="text" placeholder="Username"></textinp>
-        </div>
-        <div class="form-group">
-          <textinp name="password" type="password" placeholder="Password"></textinp>
-        </div>
-        <div class="form-group" style="margin-left: 6px">
-          <textinp name="confirm-password" type="password" placeholder="Confirm Password"></textinp>
-        </div>
-        <div class="form-group" style="margin-left: 12px; margin-top: 20px">
-          <input type="checkbox" class="form-check-input" id="ConfirmPolicy">
-          <small class="form-check-label" for="ConfirmPolicy">
-            I have read and agree to the terms of service and privacy
-            policy</small>
-        </div>
-        <router-link to="/Dashboard/0" type="button" class="btn btn-outline-light">
-          <BIcon icon="plus" aria-hidden="true"></BIcon>
-          Create Account
-          </router-link>
-      </form>
-      <div class="alternate">
-        <p class="norm">
-          Already have a SpeedMail Account ?
-          <router-link to="/user/login" >
-          Sign In
-          </router-link>
-        </p>
+      <div class="form-group">
+        <textinp name="username" type="text" placeholder="Username"></textinp>
       </div>
+      <div class="form-group">
+        <textinp name="password" type="password" placeholder="Password"></textinp>
+      </div>
+      <div class="form-group" style="margin-left: 6px">
+        <textinp name="confirm-password" type="password" placeholder="Confirm Password"></textinp>
+      </div>
+      <div class="form-group" style="margin-left: 12px; margin-top: 20px">
+        <input type="checkbox" class="form-check-input" id="ConfirmPolicy">
+        <small class="form-check-label" for="ConfirmPolicy">
+          I have read and agree to the terms of service and privacy
+          policy</small>
+      </div>
+      <router-link to="/Dashboard/0" type="button" class="btn btn-outline-light">
+        <BIcon icon="plus" aria-hidden="true"></BIcon>
+        Create Account
+      </router-link>
+    </form>
+    <div class="alternate">
+      <p class="norm">
+        Already have a SpeedMail Account ?
+        <router-link to="/user/login" >
+          Sign In
+        </router-link>
+      </p>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
@@ -72,21 +65,10 @@ export default {
 </script>
 
 <style scoped lang=scss>
-html {
-  background-color: $brown-200;
-}
-#body {
-  margin-top: 150px;
-  width: 2000px;
-  display: flex;
-  flex-direction: column;
-  background-color: $brown-200 !important;
-}
 #main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 500px;
   height: 780px;
   background-color: $brown-400;
   color: white;
