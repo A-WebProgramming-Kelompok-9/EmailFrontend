@@ -1,28 +1,23 @@
 <template>
   <div id="main">
     <h4>Start Using Smail</h4>
-    <p style="font-size: 15px">
-      Join Smail, to write your own mail, send your mail and many more
-    </p>
-    <h5>Register With</h5>
-    <div class="registerwith">
-      <router-link to="/Dashboard/0" class="btn btn-link">
-        <BIcon icon="" aria-hidden="true"></BIcon>
-        Facebook
-      </router-link>
-      <router-link to="/Dashboard/0" class="btn btn-link">
-        <BIcon icon="" aria-hidden="true"></BIcon>
-        Twitter
-      </router-link>
-      <router-link to="/Dashboard/0" class="btn btn-link">
-        <BIcon icon="" aria-hidden="true"></BIcon>
-        Google
-      </router-link>
-    </div>
-    <div class="spacer"><br><br></div>
-    <form class="register-form">
-      <div class="form-group">
-        <textinp name="alt-email" type="email" placeholder="Alternate Email"></textinp>
+      <p style="font-size: 15px">
+        Join Smail, to write your own mail, send your mail and many more
+      </p>
+      <h5>Register With</h5>
+      <div class="registerwith">
+        <router-link to="/Dashboard/0" class="btn btn-link">
+          <FacebookIcon></FacebookIcon>
+          Facebook
+          </router-link>
+        <router-link to="/Dashboard/0" class="btn btn-link">
+          <TwitterIcon></TwitterIcon>
+          Twitter
+          </router-link>
+        <router-link to="/Dashboard/0" class="btn btn-link">
+          <GoogleIcon></GoogleIcon>
+          Google
+          </router-link>
       </div>
       <div class="form-group">
         <textinp name="username" type="text" placeholder="Username"></textinp>
@@ -57,10 +52,14 @@
 
 <script>
 import textinp from "@/components/TextInputGroup"
+import { FacebookIcon, TwitterIcon, GoogleIcon } from 'vue-simple-icons'
 export default {
   name: "Register",
   components: {
-    textinp
+    textinp,
+    FacebookIcon,
+    TwitterIcon,
+    GoogleIcon
   }
 }
 </script>
@@ -100,7 +99,6 @@ export default {
     margin-top: 20px;
   
   }
-
   .register-form {
     display: flex;
     padding: 20px;

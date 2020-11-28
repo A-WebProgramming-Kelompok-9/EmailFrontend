@@ -45,12 +45,14 @@
 
 <script>
 import textinp from "@/components/TextInputGroup"
-import { FacebookIcon } from 'vue-simple-icons'
+import {FacebookIcon,GoogleIcon,TwitterIcon} from 'vue-simple-icons'
 export default {
   name: "Login",
   components: {
     textinp,
-    FacebookIcon
+    FacebookIcon,
+    TwitterIcon,
+    GoogleIcon
   }
 }
 </script>
