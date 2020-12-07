@@ -1,7 +1,7 @@
 <template>
   <div class="maincontainer">
     <div class="main">
-      <h2 id="mailTitle" class="px-5">Title Mail</h2>
+      <h2 id="mailTitle" class="px-5" v-model="users.Title">{{users.Title}}</h2>
       <div class="mail-header">
         <!--Back Button-->
         <router-link
@@ -22,8 +22,8 @@
           />
           <div class="media-body mx-3">
             <h4 id="sender">
-              From : Sans the Skeleton &lt;<router-link to="#" class="btn-link"
-                >megalovania@under.tale</router-link
+              From : {{users.Sender_Username}} &lt;<router-link to="#" class="btn-link"
+                >{{users.Sender_Username}}@swagon.com</router-link
               >&gt;
               <!--Block Button-->
               <router-link class="btn btn-red btn-sm" to="/Dashboard/10/#Block">
@@ -31,8 +31,8 @@
               </router-link>
             </h4>
             <h4 id="receiver">
-              To: Jonathan Joestar &lt;<router-link to="#" class="btn-link"
-                >Dio@swagon.com</router-link
+              To: {{users.Receiver_List}}&lt;<router-link to="#" class="btn-link"
+                >{{users.Receiver_List}}@swagon.com</router-link
               >&gt;
             </h4>
           </div>
@@ -54,18 +54,8 @@
         </div>
       </div>
       <div class="mail-content">
-        <textarea class="text" rows="" readonly>
-Attn My Dear:
-
-We wish to inform you that the diplomatic agent conveying the consignment box valued the sum of $8.8 Million United States Dollars misplaced your address and he is currently stranded at your International airport now. We required you reconfirm the following information below so that he can deliver your consignment box to you today.
-            
-NAME:================== COUNTRY:================ CITY:================== HOME ADDRESS: =============== MOBILE NO.:============= NAME OF YOUR NEAREST AIRPORT:======== A COPY OF YOUR IDENTIFICATION :===============
-            
-Please do contact the diplomatic agent with the email below with the information required. Contact Person : Mr. Beneth Nicolas EMAIL;( benethnicolas42@gmail.com) He is waiting to hear from you today with the information. NOTE : The Diplomatic agent does not know that the content of the consignment box is $8.8 Millions United States Dollars and on no circumstances should you let him know the content. The consignments was moved from here as family treasures, so never allow him to open the box.
-            
-Best Regards, Mrs. Sandra Ben
-                </textarea
-        >
+        <textarea class="text" rows="" readonly v-model="users.content">
+        </textarea>
       </div>
     </div>
   </div>
@@ -75,6 +65,26 @@ Best Regards, Mrs. Sandra Ben
 export default {
   name: "View",
   components: {},
+  data() {
+    return {
+      users: {},
+    }
+  },
+  mounted() {
+    if (localStorage.content) {
+      delete localStorage.content
+      console.log(localStorage.content)
+    } else {
+      fetch("http://localhost:3000/:id/View/:id")
+          .then(response => response.json())
+          .then(result => {
+            console.log(this.users)
+            this.users = result
+            console.log(this.users)
+            localStorage.content = result
+          });
+    }
+  }
 };
 </script>
 

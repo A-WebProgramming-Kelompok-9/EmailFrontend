@@ -2,7 +2,7 @@
   <div class="boxing">
     <div class="main">
       <div class="mx-3">
-        <textInp name="Title" placeholder="Title" type="text"></textInp>
+        <textInp name="Title" placeholder="Title" type="text" v-model="Title"></textInp>
       </div>
       <div class="mail-header">
         <!--Back Button-->
@@ -17,8 +17,8 @@
         <div class="media m-1">
           <div class="media-body mx-3">
             <h4>
-              From : Jonathan Joestar &lt;<router-link to="#" class="btn-link"
-                >Dio@swagon.com</router-link
+              From : {{users.Sender_Username}} &lt;<router-link to="#" class="btn-link"
+                >{{users.Sender_Username}}@swagon.com</router-link
               >&gt;
             </h4>
             <div class="input-group">
@@ -31,16 +31,17 @@
                 placeholder="Recipient"
                 aria-label="Recipient"
                 aria-describedby="basic-addon1"
+                v-model="Receiver_List"
               />
             </div>
           </div>
         </div>
         <!--Triple Button-->
         <div class="tri-btn">
-          <router-link class="btn btn-outline-light btn-sm align-top" to="#"
+          <Button class="btn btn-outline-light btn-sm align-top" to="#" v-on:click="sendEmail"
             ><BIcon icon="skip-forward-fill"></BIcon>
             Send
-          </router-link>
+          </Button>
           <router-link class="btn btn-outline-light btn-sm align-top" to="#"
             ><BIcon icon="Archive-fill"></BIcon>
             Save
@@ -52,7 +53,7 @@
         </div>
       </div>
       <div class="mail-content">
-        <textarea class="text" rows=""> </textarea>
+        <textarea class="text" rows="" v-model="Content"> </textarea>
       </div>
     </div>
   </div>
@@ -65,6 +66,47 @@ export default {
   components: {
     textInp,
   },
+  data() {
+    return {
+      users: {},
+      Title: "",
+      Receiver_List: "",
+      Content: ""
+    }
+  },
+  methods: {
+    sendEmail() {
+      fetch("https://localhost:3000/Email/Create", {
+        method: "POST",
+        body: JSON.stringify({
+          Title: this.Title,
+          Receiver_List: this.Receiver_List,
+          Content: this.Content
+        }),
+        headers: {
+          "content-type": "application/json"
+        }
+      }).then(response => response.json()
+      ).then(result => {
+        console.log(result)
+      })
+    }
+  },
+  mounted() {
+    if (localStorage.content) {
+      delete localStorage.content
+      console.log(localStorage.content)
+    } else {
+      fetch("http://localhost:3000/:id/View/:id")
+          .then(response => response.json())
+          .then(result => {
+            console.log(this.users)
+            this.users = result
+            console.log(this.users)
+            localStorage.content = result
+          });
+    }
+  }
 };
 </script>
 
