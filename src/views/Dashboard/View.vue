@@ -1,7 +1,7 @@
 <template>
   <div class="maincontainer">
     <div class="main">
-      <h2 id="mailTitle" class="px-5" v-model="users.Title">{{users.Title}}</h2>
+      <h2 id="mailTitle" class="px-5">{{users.Title}}</h2>
       <div class="mail-header">
         <!--Back Button-->
         <router-link
