@@ -22,16 +22,16 @@
     <div class="spacer"></div>
     <form class="login-form">
       <div class="form-group">
-        <textinp name="username" type="text" placeholder="Username"></textinp>
+        <textinp name="username" type="text" v-model="Username"  placeholder="Username"></textinp>
       </div>
       <div class="form-group">
-        <textinp name="password" type="password" placeholder="Password"></textinp>
+        <textinp name="password" type="password" v-model="Password" placeholder="Password"></textinp>
       </div>
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="KeepSignedIn" />
         <label class="form-check-label" for="KeepSignedIn">Remember me</label>
       </div>
-      <router-link to="/Dashboard/0/" class="btn btn-outline-light flex-end">Login</router-link>
+      <button class="btn btn-outline-light flex-end" v-on:click="login" >Login</button>
     </form>
     <div class="alternate">
       <div class="forgot">
@@ -48,11 +48,47 @@ import textinp from "@/components/TextInputGroup"
 import {FacebookIcon,GoogleIcon,TwitterIcon} from 'vue-simple-icons'
 export default {
   name: "Login",
+  data() {
+    return {
+      Username: "",
+      Password:""
+    }
+  },
   components: {
     textinp,
     FacebookIcon,
     TwitterIcon,
-    GoogleIcon
+    GoogleIcon,
+    login() {
+      fetch("http://localhost:3000/User/Login", {
+        method: "POST",
+        body: JSON.stringify({
+          username:this.Username,
+          password:this.Password
+        }),
+        headers: {
+          "content-type": "application/json"
+        }
+      }).then(response => response.json()
+      ).then(result => {
+        console.log(result)
+      })
+    }
+  },
+  mounted() {
+    if (localStorage.content) {
+      delete localStorage.content
+      console.log(localStorage.content)
+    } else {
+      fetch("http://localhost:3000/:id/Login/:id")
+          .then(response => response.json())
+          .then(result => {
+            console.log(this.users)
+            this.users = result
+            console.log(this.users)
+            localStorage.content = result
+          })
+    }
   }
 }
 </script>

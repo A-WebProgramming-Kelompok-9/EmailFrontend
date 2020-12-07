@@ -9,17 +9,17 @@
       </p>
     </div>
     <form class="recover-form">
-      <textinp name="username" type="username" placeholder="Username"></textinp>
-      <textinp name="alt-email" type="email" placeholder="Alternative Email"></textinp>
-      <router-link to="/#Recover" type="button" class="btn btn-outline-light flex-end">Recover My Account</router-link>
+      <textinp name="username"  v-model="Username" type="username" placeholder="Username"></textinp>
+      <textinp name="alt-email" v-model="Alt_Email" type="email" placeholder="Alternative Email"></textinp>
+      <button type="button" class="btn btn-outline-light flex-end" v-on:click="newcontent">Recover My Account</button>
     </form>
     <div class="alternate">
       <p>
-        If you have any further problems, please contact our <br></br>
+        If you have any further problems, please contact our <br>
         <router-link to="#Contact" class="btn-link">Costumer Service Team</router-link>
       </p>
       <p class="norm">
-        Dont have a SpeedMail Account ?<br></br>
+        Dont have a SpeedMail Account ?<br>
         <router-link to="/User/Register/" type="button" class="btn btn-link">Sign Up</router-link>
       </p>
     </div>
@@ -31,9 +31,47 @@ import textinp from "@/components/TextInputGroup"
 
 export default {
   name: "Forget",
+  data() {
+    return {
+      Username: "",
+      Alt_Email:""
+    }
+  },
   components: {
-    textinp
+    textinp,
+     methods: {
+    newcontent() {
+      fetch("http://localhost:3000/User/Forget", {
+        method: "POST",
+        body: JSON.stringify({
+          username:this.Username,
+          alt_email:this.Alt_Email
+        }),
+        headers: {
+          "content-type": "application/json"
+        }
+      }).then(response => response.json()
+      ).then(result => {
+        console.log(result)
+      })
+    }
+  },
+  mounted() {
+    if (localStorage.content) {
+      delete localStorage.content
+      console.log(localStorage.content)
+    } else {
+      fetch("http://localhost:3000/:id/Forget/:id")
+          .then(response => response.json())
+          .then(result => {
+            console.log(this.users)
+            this.users = result
+            console.log(this.users)
+            localStorage.content = result
+          })
+    }
   }
+}
 }
 </script>
 

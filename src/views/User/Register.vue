@@ -20,20 +20,20 @@
       </router-link>
     </div>
     <div class="register-form">
-      <textinp name="alt-email" type="email" placeholder="Alternate Email"></textinp>
-      <textinp name="username" type="text" placeholder="Username"></textinp>
-      <textinp name="password" type="password" placeholder="Password"></textinp>
-      <textinp name="confirm-password" type="password" placeholder="Confirm Password"></textinp>
+      <textinp name="alt-email" type="email" v-model="Alt_Email" placeholder="Alternate Email"></textinp>
+      <textinp name="username" type="text" v-model="Username"  placeholder="Username"></textinp>
+      <textinp name="password" type="password" v-model="Password"  placeholder="Password"></textinp>
+      <textinp name="confirm-password" type="password" v-model="Password" placeholder="Confirm Password"></textinp>
       <div class="checkinput">
         <input type="checkbox" id="ConfirmPolicy">
         <small for="ConfirmPolicy">
           I have read and agree to the terms of service and privacy
           policy</small>
       </div>
-      <router-link to="/Dashboard/0" type="button" class="btn btn-outline-light">
+      <button type="button" class="btn btn-outline-light" v-on:click="insertcontent">
         <BIcon icon="plus" aria-hidden="true"></BIcon>
         Create Account
-      </router-link>
+      </button>
     </div>
     <div class="alternate">
       <p class="norm">
@@ -52,11 +52,36 @@ import {FacebookIcon, TwitterIcon, GoogleIcon} from 'vue-simple-icons'
 
 export default {
   name: "Register",
+  data() {
+    return {
+      Username: "",
+      Password:"",
+      Alt_Email:""
+    }
+  },
   components: {
     textinp,
     FacebookIcon,
     TwitterIcon,
-    GoogleIcon
+    GoogleIcon,
+     methods: {
+    insertcontent() {
+      fetch("http://localhost:3000/User/Register", {
+        method: "POST",
+        body: JSON.stringify({
+          username:this.Username,
+          password:this.Password,
+          alt_email:this.Alt_Email
+        }),
+        headers: {
+          "content-type": "application/json"
+        }
+      }).then(response => response.json()
+      ).then(result => {
+        console.log(result)
+      })
+    }
+  },
   }
 }
 </script>
