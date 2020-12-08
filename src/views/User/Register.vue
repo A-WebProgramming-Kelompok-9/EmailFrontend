@@ -67,11 +67,11 @@ export default {
      methods: {
     insertdata() {
       fetch("https://speedwagonmailback.herokuapp.com/account/add", {
-        method: "POST",
+        method: "GET",
         body: JSON.stringify({
-          username:this.Username,
-          password:this.Password,
-          alt_email:this.Alt_Email
+          usern:this.Username,
+          pass:this.Password,
+          altermail:this.Alt_Email
         }),
         headers: {
           "content-type": "application/json"

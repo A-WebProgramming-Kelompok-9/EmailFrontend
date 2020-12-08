@@ -42,10 +42,10 @@ export default {
      methods: {
     newdata() {
       fetch("https://speedwagonmailback.herokuapp.com/account/forget", {
-        method: "POST",
+        method: "GET",
         body: JSON.stringify({
-          username:this.Username,
-          alt_email:this.Alt_Email
+          usern:this.Username,
+          altermail:this.Alt_Email
         }),
         headers: {
           "content-type": "application/json"
