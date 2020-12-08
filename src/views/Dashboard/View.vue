@@ -75,7 +75,7 @@ export default {
       delete localStorage.content
       console.log(localStorage.content)
     } else {
-      fetch("https://speedwagonmailback.herokuapp.com/:id/View/:id")
+      fetch("https://speedwagonmailback.herokuapp.com/email")
           .then(response => response.json())
           .then(result => {
             console.log(this.users)

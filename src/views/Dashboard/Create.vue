@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     sendEmail() {
-      fetch("https://localhost:3000/Email/Create", {
+      fetch("https://speedwagonmailback.herokuapp.com/email/add", {
         method: "POST",
         body: JSON.stringify({
           Title: this.Title,
@@ -97,7 +97,7 @@ export default {
       delete localStorage.content
       console.log(localStorage.content)
     } else {
-      fetch("https://speedwagonmailback.herokuapp.com/:id/View/:id")
+      fetch("https://speedwagonmailback.herokuapp.com/email")
           .then(response => response.json())
           .then(result => {
             console.log(this.users)
