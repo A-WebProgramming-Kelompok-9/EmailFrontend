@@ -82,7 +82,7 @@ export default {
         method: "POST",
         body: JSON.stringify({
           title: this.title,
-          username: this.username,
+          username: this.users.username,
           receiver: this.receiver,
           content: this.content,
           attachment: ""
@@ -97,7 +97,7 @@ export default {
     }
   },
   mounted() {
-    if (localStorage.content) {
+    if (localStorage. content) {
       delete localStorage.content
       console.log(localStorage.content)
     } else {
