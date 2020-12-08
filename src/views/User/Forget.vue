@@ -41,7 +41,7 @@ export default {
     textinp,
      methods: {
     newdata() {
-      fetch("http://localhost:3000/User/Forget", {
+      fetch("https://speedwagonmailback.herokuapp.com/account/forget", {
         method: "POST",
         body: JSON.stringify({
           username:this.Username,
