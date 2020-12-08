@@ -75,21 +75,6 @@ export default {
       })
     }
   },
-  mounted() {
-    if (localStorage.content) {
-      delete localStorage.content
-      console.log(localStorage.content)
-    } else {
-      fetch("http://localhost:3000/:id/Login/:id")
-          .then(response => response.json())
-          .then(result => {
-            console.log(this.users)
-            this.users = result
-            console.log(this.users)
-            localStorage.content = result
-          })
-    }
-  }
 }
 </script>
 

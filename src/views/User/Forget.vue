@@ -11,7 +11,7 @@
     <form class="recover-form">
       <textinp name="username"  v-model="Username" type="username" placeholder="Username"></textinp>
       <textinp name="alt-email" v-model="Alt_Email" type="email" placeholder="Alternative Email"></textinp>
-      <button type="button" class="btn btn-outline-light flex-end" v-on:click="newcontent">Recover My Account</button>
+      <button type="button" class="btn btn-outline-light flex-end" v-on:click="newdata">Recover My Account</button>
     </form>
     <div class="alternate">
       <p>
@@ -40,7 +40,7 @@ export default {
   components: {
     textinp,
      methods: {
-    newcontent() {
+    newdata() {
       fetch("http://localhost:3000/User/Forget", {
         method: "POST",
         body: JSON.stringify({
@@ -56,22 +56,7 @@ export default {
       })
     }
   },
-  mounted() {
-    if (localStorage.content) {
-      delete localStorage.content
-      console.log(localStorage.content)
-    } else {
-      fetch("http://localhost:3000/:id/Forget/:id")
-          .then(response => response.json())
-          .then(result => {
-            console.log(this.users)
-            this.users = result
-            console.log(this.users)
-            localStorage.content = result
-          })
-    }
   }
-}
 }
 </script>
 
