@@ -61,10 +61,10 @@ export default {
     GoogleIcon,
     login() {
       fetch("https://speedwagonmailback.herokuapp.com/account", {
-        method: "POST",
+        method: "GET",
         body: JSON.stringify({
-          username:this.Username,
-          password:this.Password
+          usern:this.Username,
+          pass:this.Password
         }),
         headers: {
           "content-type": "application/json"
