@@ -60,7 +60,7 @@ export default {
     TwitterIcon,
     GoogleIcon,
     login() {
-      fetch("http://localhost:3000/User/Login", {
+      fetch("https://speedwagonmailback.herokuapp.com/account", {
         method: "POST",
         body: JSON.stringify({
           username:this.Username,

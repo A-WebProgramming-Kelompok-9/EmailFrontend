@@ -66,7 +66,7 @@ export default {
     GoogleIcon,
      methods: {
     insertdata() {
-      fetch("http://localhost:3000/User/Register", {
+      fetch("https://speedwagonmailback.herokuapp.com/account/add", {
         method: "POST",
         body: JSON.stringify({
           username:this.Username,
