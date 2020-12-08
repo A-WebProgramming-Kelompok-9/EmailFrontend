@@ -30,7 +30,7 @@
           I have read and agree to the terms of service and privacy
           policy</small>
       </div>
-      <button type="button" class="btn btn-outline-light" v-on:click="insertcontent">
+      <button type="button" class="btn btn-outline-light" v-on:click="insertdata">
         <BIcon icon="plus" aria-hidden="true"></BIcon>
         Create Account
       </button>
@@ -65,7 +65,7 @@ export default {
     TwitterIcon,
     GoogleIcon,
      methods: {
-    insertcontent() {
+    insertdata() {
       fetch("http://localhost:3000/User/Register", {
         method: "POST",
         body: JSON.stringify({
