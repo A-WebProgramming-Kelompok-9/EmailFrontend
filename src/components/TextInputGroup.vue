@@ -1,6 +1,7 @@
 <template>
   <div class="inputarea">
-    <input :type="type" :name="name" :id="name+'inp'" class="input" placeholder=" " />
+    <input :type="type" :name="name" :id="name+'inp'" class="input" placeholder=" " v-bind:value="value"
+           v-on:input="updateValue($event.target.value)"/>
     <label :for="name+'inp'" class="label">{{ placeholder }}</label>
   </div>
 </template>`
@@ -8,24 +9,30 @@
 <script>
 export default {
   name: "TextInputGroup",
-  props: ["name","placeholder","type"],
+  props: ["name", "placeholder", "type", "value"],
   components: {},
+  methods: {
+    updateValue: function (value) {
+      this.$emit('input', value)
+    }
+  }
 }
 </script>
 
 <style scoped lang=scss>
 
-.inputarea{
-  *{
+.inputarea {
+  * {
     color: white;
   }
+
   position: relative; // biar label bisa pake absolute
   margin: 3rem auto 1rem; //pastiin atasnya ada 1 rem kosong buat tulisannya naek
   width: 100%;
   border-bottom: dashed 1px white;
 
   //garis bawahnya
-  &:after{
+  &:after {
     content: "";
     position: relative;
     display: block;
@@ -39,19 +46,20 @@ export default {
   }
 
   //bagian animasinya
-  &:focus-within{
-    .label{
+  &:focus-within {
+    .label {
       transform: translateY(-100%);
       font-size: 1rem;
     }
-    &:after{
+
+    &:after {
       transform: scaleX(1);
     }
   }
 }
 
 //ngosongin style input box
-.input{
+.input {
   width: 100%;
   background: none;
   border: none;
@@ -59,7 +67,7 @@ export default {
   overflow: hidden;
 }
 
-.label{
+.label {
   position: absolute;
   z-index: 1;
   left: 0;
@@ -71,7 +79,7 @@ export default {
 //biar textnya ga turun lagi kalo ada tulisan
 .inputarea:focus-within .label,
 .input:not(:placeholder-shown) + .label {
-  transform: translateY(-100%) ;
+  transform: translateY(-100%);
   font-size: 1rem;
   opacity: 1;
 }
