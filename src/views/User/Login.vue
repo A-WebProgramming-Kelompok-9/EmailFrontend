@@ -60,11 +60,11 @@ export default {
     TwitterIcon,
     GoogleIcon,
     login() {
-      fetch("http://localhost:3000/User/Login", {
-        method: "POST",
+      fetch("https://speedwagonmailback.herokuapp.com/account", {
+        method: "GET",
         body: JSON.stringify({
-          username:this.Username,
-          password:this.Password
+          usern:this.Username,
+          pass:this.Password
         }),
         headers: {
           "content-type": "application/json"
@@ -75,21 +75,6 @@ export default {
       })
     }
   },
-  mounted() {
-    if (localStorage.content) {
-      delete localStorage.content
-      console.log(localStorage.content)
-    } else {
-      fetch("http://localhost:3000/:id/Login/:id")
-          .then(response => response.json())
-          .then(result => {
-            console.log(this.users)
-            this.users = result
-            console.log(this.users)
-            localStorage.content = result
-          })
-    }
-  }
 }
 </script>
 

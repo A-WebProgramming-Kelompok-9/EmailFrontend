@@ -30,7 +30,7 @@
           I have read and agree to the terms of service and privacy
           policy</small>
       </div>
-      <button type="button" class="btn btn-outline-light" v-on:click="insertcontent">
+      <button type="button" class="btn btn-outline-light" v-on:click="insertdata">
         <BIcon icon="plus" aria-hidden="true"></BIcon>
         Create Account
       </button>
@@ -65,13 +65,13 @@ export default {
     TwitterIcon,
     GoogleIcon,
      methods: {
-    insertcontent() {
-      fetch("http://localhost:3000/User/Register", {
-        method: "POST",
+    insertdata() {
+      fetch("https://speedwagonmailback.herokuapp.com/account/add", {
+        method: "GET",
         body: JSON.stringify({
-          username:this.Username,
-          password:this.Password,
-          alt_email:this.Alt_Email
+          usern:this.Username,
+          pass:this.Password,
+          altermail:this.Alt_Email
         }),
         headers: {
           "content-type": "application/json"
