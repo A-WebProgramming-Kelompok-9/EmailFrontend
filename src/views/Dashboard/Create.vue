@@ -120,13 +120,12 @@ html {
 }
 .boxing {
   display: flex;
-  margin-top: -27px;
 
   .main {
     display: flex;
     flex-direction: column;
     background-color: $brown-400;
-    padding: 5px ;
+    padding: 5px;
     width: 100%;
     color: white;
     .btn-outline-light {
@@ -180,7 +179,7 @@ html {
       textarea {
         width: 100%;
         overflow-y: auto;
-        height: calc(100vh - 169px);
+        height: calc(100vh - 179px);
 
         &::-webkit-scrollbar {
           width: 10px;
