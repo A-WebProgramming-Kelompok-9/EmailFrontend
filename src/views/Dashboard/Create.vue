@@ -85,7 +85,7 @@ export default {
           username: this.username,
           receiver: this.receiver,
           content: this.content,
-          attachment: this.attachment
+          attachment: ""
         }),
         headers: {
           "content-type": "application/json"
