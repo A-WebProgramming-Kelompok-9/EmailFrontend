@@ -59,9 +59,11 @@ export default {
     FacebookIcon,
     TwitterIcon,
     GoogleIcon,
-    login() {
+  },
+  methods: {
+  login() {
       fetch("https://speedwagonmailback.herokuapp.com/account", {
-        method: "GET",
+        method: "POST",
         body: JSON.stringify({
           usern:this.Username,
           pass:this.Password
@@ -74,7 +76,7 @@ export default {
         console.log(result)
       })
     }
-  },
+  }
 }
 </script>
 

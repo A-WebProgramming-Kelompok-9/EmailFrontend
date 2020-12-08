@@ -23,7 +23,7 @@
       <textinp name="alt-email" type="email" v-model="Alt_Email" placeholder="Alternate Email"></textinp>
       <textinp name="username" type="text" v-model="Username"  placeholder="Username"></textinp>
       <textinp name="password" type="password" v-model="Password"  placeholder="Password"></textinp>
-      <textinp name="confirm-password" type="password" v-model="Password" placeholder="Confirm Password"></textinp>
+      <textinp name="confirm-password" type="password" v-model="ConfirmPassword" placeholder="Confirm Password"></textinp>
       <div class="checkinput">
         <input type="checkbox" id="ConfirmPolicy">
         <small for="ConfirmPolicy">
@@ -56,7 +56,8 @@ export default {
     return {
       Username: "",
       Password:"",
-      Alt_Email:""
+      Alt_Email:"",
+      ConfirmPassword:""
     }
   },
   components: {
@@ -64,10 +65,14 @@ export default {
     FacebookIcon,
     TwitterIcon,
     GoogleIcon,
-     methods: {
+  },
+  methods: {
     insertdata() {
+      if (this.Password != this.ConfirmPassword) {
+        return;
+      }
       fetch("https://speedwagonmailback.herokuapp.com/account/add", {
-        method: "GET",
+        method: "POST",
         body: JSON.stringify({
           usern:this.Username,
           pass:this.Password,
@@ -81,7 +86,6 @@ export default {
         console.log(result)
       })
     }
-  },
   }
 }
 </script>
