@@ -2,7 +2,7 @@
   <div class="boxing">
     <div class="main">
       <div class="mx-3">
-        <textInp name="Title" placeholder="Title" type="text" v-model="Title"></textInp>
+        <textInp name="Title" placeholder="Title" type="text" v-model="title"></textInp>
       </div>
       <div class="mail-header">
         <!--Back Button-->
@@ -17,8 +17,8 @@
         <div class="media m-1">
           <div class="media-body mx-3">
             <h4>
-              From : {{users.Sender_Username}} &lt;<router-link to="#" class="btn-link"
-                >{{users.Sender_Username}}@swagon.com</router-link
+              From : {{users.username}} &lt;<router-link to="#" class="btn-link"
+                >{{users.username}}@swagon.com</router-link
               >&gt;
             </h4>
             <div class="input-group">
@@ -31,7 +31,7 @@
                 placeholder="Recipient"
                 aria-label="Recipient"
                 aria-describedby="basic-addon1"
-                v-model="Receiver_List"
+                v-model="receiver"
               />
             </div>
           </div>
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="mail-content">
-        <textarea class="text" rows="" v-model="Content"> </textarea>
+        <textarea class="text" rows="" v-model="content"> </textarea>
       </div>
     </div>
   </div>
@@ -69,19 +69,23 @@ export default {
   data() {
     return {
       users: {},
-      Title: "",
-      Receiver_List: "",
-      Content: ""
+      title: "",
+      username: "",
+      receiver: "",
+      content: "",
+      attachment: ""
     }
   },
   methods: {
     sendEmail() {
-      fetch("https://localhost:3000/Email/Create", {
+      fetch("https://speedwagonmailback.herokuapp.com/email/add", {
         method: "POST",
         body: JSON.stringify({
-          Title: this.Title,
-          Receiver_List: this.Receiver_List,
-          Content: this.Content
+          title: this.title,
+          username: this.users.username,
+          receiver: this.receiver,
+          content: this.content,
+          attachment: ""
         }),
         headers: {
           "content-type": "application/json"
@@ -93,11 +97,11 @@ export default {
     }
   },
   mounted() {
-    if (localStorage.content) {
+    if (localStorage. content) {
       delete localStorage.content
       console.log(localStorage.content)
     } else {
-      fetch("http://localhost:3000/:id/View/:id")
+      fetch("https://speedwagonmailback.herokuapp.com/email/find")
           .then(response => response.json())
           .then(result => {
             console.log(this.users)

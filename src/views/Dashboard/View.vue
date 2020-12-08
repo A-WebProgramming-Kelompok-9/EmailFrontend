@@ -1,7 +1,7 @@
 <template>
   <div class="maincontainer">
     <div class="main">
-      <h2 id="mailTitle" class="px-5">{{users.Title}}</h2>
+      <h2 id="mailTitle" class="px-5">{{users.title}}</h2>
       <div class="mail-header">
         <!--Back Button-->
         <router-link
@@ -22,8 +22,8 @@
           />
           <div class="media-body mx-3">
             <h4 id="sender">
-              From : {{users.Sender_Username}} &lt;<router-link to="#" class="btn-link"
-                >{{users.Sender_Username}}@swagon.com</router-link
+              From : {{users.username}} &lt;<router-link to="#" class="btn-link"
+                >{{users.username}}@swagon.com</router-link
               >&gt;
               <!--Block Button-->
               <router-link class="btn btn-red btn-sm" to="/Dashboard/10/#Block">
@@ -31,8 +31,8 @@
               </router-link>
             </h4>
             <h4 id="receiver">
-              To: {{users.Receiver_List}}&lt;<router-link to="#" class="btn-link"
-                >{{users.Receiver_List}}@swagon.com</router-link
+              To: {{users.receiver}}&lt;<router-link to="#" class="btn-link"
+                >{{users.receiver}}@swagon.com</router-link
               >&gt;
             </h4>
           </div>
@@ -75,7 +75,7 @@ export default {
       delete localStorage.content
       console.log(localStorage.content)
     } else {
-      fetch("http://localhost:3000/:id/View/:id")
+      fetch("https://speedwagonmailback.herokuapp.com/email/find")
           .then(response => response.json())
           .then(result => {
             console.log(this.users)

@@ -39,10 +39,11 @@ export default {
   },
   components: {
     textinp,
-     methods: {
+  },
+  methods: {
     newdata() {
       fetch("https://speedwagonmailback.herokuapp.com/account/forget", {
-        method: "GET",
+        method: "POST",
         body: JSON.stringify({
           usern:this.Username,
           altermail:this.Alt_Email
@@ -55,7 +56,6 @@ export default {
         console.log(result)
       })
     }
-  },
   }
 }
 </script>
