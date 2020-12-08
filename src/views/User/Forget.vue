@@ -39,7 +39,8 @@ export default {
   },
   components: {
     textinp,
-     methods: {
+  },
+  methods: {
     newdata() {
       fetch("https://speedwagonmailback.herokuapp.com/account/forget", {
         method: "GET",
@@ -55,7 +56,6 @@ export default {
         console.log(result)
       })
     }
-  },
   }
 }
 </script>
