@@ -1,6 +1,6 @@
 <template>
   <div class="flex-col sidebar-wrapper">
-    <router-link class="navbar-brand mx-auto" to="/dashboard/10">
+    <router-link class="navbar-brand mx-auto" to="/dashboard">
       <img src="@/assets/SPW LOGO.png" alt="" class="rounded-circle mr-1"/>
       Speedwagon Mail</router-link
     >
