@@ -40,6 +40,7 @@ const routes = [
         component: User,
         children: [{
             path: 'login',
+            name:"Login",
             component: Login,
         }, {
             path: 'register',
@@ -50,14 +51,14 @@ const routes = [
         },]
     },
     {
-        path: '/dashboard/:id',
+        path: '/dashboard',
         name: 'Dashboard',
         component: () => import('../views/Dashboard'),
         children: [{
             path: '',
             component: () => import('../views/Dashboard/Home'),
         }, {
-            path: 'view/:email',
+            path: 'view',
             component: () => import('../views/Dashboard/View'),
         }, {
             path: 'create',

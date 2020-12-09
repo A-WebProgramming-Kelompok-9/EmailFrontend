@@ -24,6 +24,13 @@ export default {
       return "";
     }
   },
+  mounted() {
+    if(localStorage.user){
+      this.$store.state.user = localStorage.user
+    }else{
+      this.$router.push("/user/login")
+    }
+  }
 }
 </script>
 
