@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     sided: true,
-    user:{}
+    user:{},
+    log:{}
   },
   getters:{
   },

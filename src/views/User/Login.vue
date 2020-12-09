@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="spacer"></div>
-    <form class="login-form">
+    <div class="login-form">
       <div class="form-group">
         <textinp name="username" type="text" v-model="Username"  placeholder="Username"></textinp>
       </div>
@@ -32,7 +32,7 @@
         <label class="form-check-label" for="KeepSignedIn">Remember me</label>
       </div>
       <button class="btn btn-outline-light flex-end" v-on:click="login" >Login</button>
-    </form>
+    </div>
     <div class="alternate">
       <div class="forgot">
         <router-link to="/User/Forget/" class="btn btn-link">Forgot Username?</router-link>
@@ -46,6 +46,7 @@
 <script>
 import textinp from "@/components/TextInputGroup"
 import {FacebookIcon,GoogleIcon,TwitterIcon} from 'vue-simple-icons'
+
 export default {
   name: "Login",
   data() {
@@ -74,8 +75,9 @@ export default {
       }).then(response => response.json()
       ).then(result => {
         if(result.status == "OK"){
-          localStorage.user = result.content;
-          this.$router.replace("/dashboard/")
+          //console.log(result.content[0])
+          localStorage.user = JSON.stringify(result.content[0]);
+          this.$router.push("/dashboard")
         }else{
           console.log(result)
         }

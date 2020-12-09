@@ -12,8 +12,8 @@
             style="width: 100px; height: 100px"
         />
         <div id="accinfo">
-          <p>Dio@swagon.com</p>
-          <p>Jonathan Joestar</p>
+          <p>{{ this.$store.state.user.Username }}@swagon.com</p>
+          <p>{{ this.$store.state.user.Display_Name }}</p>
           <router-link to="/dashboard/10" class="btn-link">Change your Picture</router-link>
           <router-link to="/dashboard/10" class="btn-link"
           >Change your Dashboard Background

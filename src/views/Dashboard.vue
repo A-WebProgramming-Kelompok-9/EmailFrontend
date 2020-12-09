@@ -26,9 +26,9 @@ export default {
   },
   mounted() {
     if(localStorage.user){
-      this.$store.state.user = localStorage.user
+      this.$store.state.user = JSON.parse(localStorage.user)
     }else{
-      this.$router.push("/user/login")
+      this.$router.replace("/user/login")
     }
   }
 }
