@@ -75,7 +75,8 @@ export default {
       }).then(response => response.json()
       ).then(result => {
         if(result.status == "OK"){
-          localStorage.user = result.content;
+          //console.log(result.content[0])
+          localStorage.user = JSON.stringify(result.content[0]);
           this.$router.push("/dashboard")
         }else{
           console.log(result)

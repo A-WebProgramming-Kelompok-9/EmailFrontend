@@ -46,10 +46,10 @@
 
     <div class="profile mt-auto mb-2">
       <div class="flex-col text">
-        <p>Jonathan Joestar</p>
+        <p>{{this.$store.state.user.Display_Name}}</p>
 
         <div class="links">
-          <router-link to="/dashboard/10/settings" class="btn-link">Profile</router-link>
+          <router-link to="/dashboard/settings" class="btn-link">Profile</router-link>
           <router-link to="/" class="btn-link">Logout</router-link>
         </div>
       </div>
@@ -66,7 +66,9 @@
 <script>
 export default {
   name: "Sidebar",
-  components: {}
+  components: {},
+  mounted(){
+  }
 }
 </script>
 
