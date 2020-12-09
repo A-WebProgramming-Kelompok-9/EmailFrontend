@@ -8,11 +8,11 @@
         Please be sure to check your email's spam / junk folders
       </p>
     </div>
-    <form class="recover-form">
+    <div class="recover-form">
       <textinp name="username"  v-model="Username" type="username" placeholder="Username"></textinp>
       <textinp name="alt-email" v-model="Alt_Email" type="email" placeholder="Alternative Email"></textinp>
       <button type="button" class="btn btn-outline-light flex-end" v-on:click="newdata">Recover My Account</button>
-    </form>
+    </div>
     <div class="alternate">
       <p>
         If you have any further problems, please contact our <br>
