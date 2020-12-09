@@ -14,7 +14,6 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        name: 'Home',
         component: Land,
         children: [{
             path: "",
@@ -36,11 +35,9 @@ const routes = [
     },
     {
         path: '/user',
-        name: 'User',
         component: User,
         children: [{
             path: 'login',
-            name:"Login",
             component: Login,
         }, {
             path: 'register',
@@ -52,7 +49,6 @@ const routes = [
     },
     {
         path: '/dashboard',
-        name: 'Dashboard',
         component: () => import('../views/Dashboard'),
         children: [{
             path: '',

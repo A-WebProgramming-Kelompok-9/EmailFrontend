@@ -28,7 +28,7 @@ export default {
     if(localStorage.user){
       this.$store.state.user = localStorage.user
     }else{
-      this.$router.push("/user/login")
+      this.$router.replace("/user/login")
     }
   }
 }
