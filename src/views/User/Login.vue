@@ -73,7 +73,11 @@ export default {
         }
       }).then(response => response.json()
       ).then(result => {
-        console.log(result)
+        if(result.status == "OK"){
+          localStorage.user = result.content;
+        }else{
+          console.log(result)
+        }
       })
     }
   },
