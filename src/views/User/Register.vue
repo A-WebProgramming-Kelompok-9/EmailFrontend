@@ -85,7 +85,7 @@ export default {
       ).then(result => {
         if(result.status == "OK"){
           localStorage.user = result.content;
-          this.$router.replace("/views/Dashboard")
+          this.$router.replace("/dashboard/")
         }else{
           console.log(result)
         }
