@@ -11,7 +11,7 @@
         </label>
       </transition>
     </div>
-    <router-link class="btn btn-dark" to="/dashboard/10/Create">
+    <router-link class="btn btn-dark" to="/dashboard/Create">
       <BIcon icon="file-earmark-plus"></BIcon>
       Compose
     </router-link>
