@@ -2,7 +2,7 @@
   <div class="home">
     <searchbar></searchbar>
     <div class="EmailContainer">
-      <div v-for="i in data" :key="i._id" class="Items">
+      <div v-for="i in data" :key="i._id" class="Items" v-on:click="getmail(i._id)">
         <b-icon icon="star"></b-icon>
         <h5>{{i.Sender_Username}}</h5>
         <h5>{{i.Title}}</h5>
@@ -79,6 +79,21 @@ export default {
         }else{
           console.log(result)
         }
+      })
+    },
+    getmail(id){
+      fetch("https://speedwagonmailback.herokuapp.com/email/find", {
+        method: "POST",
+        body: JSON.stringify({
+          id: id
+        }),
+        headers: {
+          "content-type": "application/json"
+        }
+      }).then(response => response.json()
+      ).then(result => {
+        localStorage.openedmail =JSON.stringify(result.content[0])
+        this.$router.push("/dashboard/view")
       })
     }
   },

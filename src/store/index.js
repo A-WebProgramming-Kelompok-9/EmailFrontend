@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     sided: true,
     log:{},
-    user: null
+    user: null,
+    openedmail:{}
   },
   getters:{
     getUser: state=>{
