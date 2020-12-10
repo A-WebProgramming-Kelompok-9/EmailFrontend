@@ -1,5 +1,14 @@
 <template>
   <div class="home">
+    <div class="loaderContainer" v-if="isLoading">
+      <hollow-dots-spinner
+          :animation-duration="1000"
+          :dot-size="15"
+          :dots-num="3"
+          color="#ff1d5e"
+          class="loader"
+      />
+    </div>
     <div class="EmailContainer">
       <div v-for="i in data" :key="i._id" class="Items" v-on:click="getmail(i._id)">
         <b-icon icon="star"></b-icon>
@@ -13,24 +22,25 @@
         <div slot="no-results">There are no Email</div>
       </infinite-loading>
     </div>
-
-
   </div>
 </template>
 
 <script>
 import InfiniteLoading from 'vue-infinite-loading';
+import { HollowDotsSpinner } from 'epic-spinners'
 
 export default {
   name: "Home",
   components: {
-    InfiniteLoading
+    InfiniteLoading,
+    HollowDotsSpinner
   },
   data() {
     return {
       data: [],
       busy: false,
-      count: 0
+      count: 0,
+      isLoading:false
     }
   },
   methods: {
@@ -72,7 +82,6 @@ export default {
           $state.loaded()
           if(result.content.length<20){
             $state.complete()
-            console.log(this.data)
           }
         }else{
           console.log(result)
@@ -80,6 +89,7 @@ export default {
       })
     },
     getmail(id){
+      this.isLoading = true;
       fetch("https://speedwagonmailback.herokuapp.com/email/find", {
         method: "POST",
         body: JSON.stringify({
@@ -91,11 +101,10 @@ export default {
       }).then(response => response.json()
       ).then(result => {
         localStorage.openedmail =JSON.stringify(result.content)
-        console.log(localStorage.openedmail)
+        this.isLoading = false;
         this.$router.push("/dashboard/view")
       })
     },
-
   },
 
 }
@@ -106,6 +115,22 @@ export default {
   background-color: $brown-100;
   display: flex;
   flex-direction: column;
+  position: relative;
+  .loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .loaderContainer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(black,0.2);
+  }
+
   .EmailContainer {
     height: calc(100vh - 75px);
     overflow-y: auto;
