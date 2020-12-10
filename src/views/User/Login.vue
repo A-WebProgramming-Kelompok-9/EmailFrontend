@@ -9,47 +9,45 @@
           class="loader"
       />
     </div>
-    <div>
-      <div class="loginwith">
-        <h4>Login</h4>
-        <div class="loginopt my-4">
-          <router-link to="/Dashboard/0/" class="btn btn-link">
-            <facebook-icon></facebook-icon>
-            Facebook
-          </router-link>
+    <div class="loginwith">
+      <h4>Login</h4>
+      <div class="loginopt my-4">
+        <router-link to="/Dashboard/0/" class="btn btn-link">
+          <facebook-icon></facebook-icon>
+          Facebook
+        </router-link>
 
-          <router-link to="/Dashboard/0/" class="btn btn-link">
-            <twitter-icon></twitter-icon>
-            Twitter
-          </router-link>
+        <router-link to="/Dashboard/0/" class="btn btn-link">
+          <twitter-icon></twitter-icon>
+          Twitter
+        </router-link>
 
-          <router-link to="/Dashboard/0/" class="btn btn-link">
-            <google-icon></google-icon>
-            Google
-          </router-link>
-        </div>
+        <router-link to="/Dashboard/0/" class="btn btn-link">
+          <google-icon></google-icon>
+          Google
+        </router-link>
       </div>
-      <div class="spacer"></div>
-      <div class="login-form">
-        <div class="form-group">
-          <textinp name="username" type="text" v-model="Username" placeholder="Username"></textinp>
-        </div>
-        <div class="form-group">
-          <textinp name="password" type="password" v-model="Password" placeholder="Password"></textinp>
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="KeepSignedIn"/>
-          <label class="form-check-label" for="KeepSignedIn">Remember me</label>
-        </div>
-        <button class="btn btn-outline-light flex-end" v-on:click="login">Login</button>
+    </div>
+    <div class="spacer"></div>
+    <div class="login-form">
+      <div class="form-group">
+        <textinp name="username" type="text" v-model="Username" placeholder="Username"></textinp>
       </div>
-      <div class="alternate">
-        <div class="forgot">
-          <router-link to="/User/Forget/" class="btn btn-link">Forgot Username?</router-link>
-          <router-link to="/User/Forget/" class="btn btn-link">Forgot password?</router-link>
-        </div>
-        <router-link to="/User/Register/" class="btn btn-link" style="width:100px; margin:auto">Sign Up</router-link>
+      <div class="form-group">
+        <textinp name="password" type="password" v-model="Password" placeholder="Password"></textinp>
       </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="KeepSignedIn"/>
+        <label class="form-check-label" for="KeepSignedIn">Remember me</label>
+      </div>
+      <button class="btn btn-outline-light flex-end" v-on:click="login">Login</button>
+    </div>
+    <div class="alternate">
+      <div class="forgot">
+        <router-link to="/User/Forget/" class="btn btn-link">Forgot Username?</router-link>
+        <router-link to="/User/Forget/" class="btn btn-link">Forgot password?</router-link>
+      </div>
+      <router-link to="/User/Register/" class="btn btn-link" style="width:100px; margin:auto">Sign Up</router-link>
     </div>
   </div>
 </template>
@@ -97,6 +95,8 @@ export default {
         } else {
           console.log(result)
         }
+      }).finally(() => {
+        this.isLoading = false
       })
     }
   },
