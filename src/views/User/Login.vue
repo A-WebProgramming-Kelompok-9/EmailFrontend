@@ -97,6 +97,8 @@ export default {
         } else {
           console.log(result)
         }
+      }).finally(() => {
+        this.isLoading = false
       })
     }
   },
