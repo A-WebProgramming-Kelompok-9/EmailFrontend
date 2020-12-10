@@ -9,7 +9,7 @@
         <router-link
           class="btn btn-outline-light my-1"
           id="backbtn"
-          to="/dashboard/10"
+          to="/dashboard"
         >
           <BIcon icon="arrow-left" class="mt-4" ></BIcon>
         </router-link>
@@ -179,7 +179,7 @@ html {
       textarea {
         width: 100%;
         overflow-y: auto;
-        height: calc(100vh - 179px);
+        height: calc(100vh - 266px);
 
         &::-webkit-scrollbar {
           width: 10px;

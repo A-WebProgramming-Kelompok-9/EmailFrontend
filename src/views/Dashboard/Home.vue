@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <searchbar></searchbar>
     <div class="EmailContainer">
       <div v-for="i in data" :key="i._id" class="Items" v-on:click="getmail(i._id)">
         <b-icon icon="star"></b-icon>
@@ -20,13 +19,11 @@
 </template>
 
 <script>
-import searchbar from "@/components/Dashboard/Search"
 import InfiniteLoading from 'vue-infinite-loading';
 
 export default {
   name: "Home",
   components: {
-    searchbar,
     InfiniteLoading
   },
   data() {
@@ -95,25 +92,9 @@ export default {
         localStorage.openedmail =JSON.stringify(result.content[0])
         this.$router.push("/dashboard/view")
       })
-    }
-  },
-  /*mounted() {
-    fetch("https://speedwagonmailback.herokuapp.com/email", {
-      method: "POST",
-      body: JSON.stringify({
-        username: this.$store.getters.getUser.Username
-      }),
-      headers: {
-        "content-type": "application/json"
-      }
-    }).then(response => response.json()
-    ).then(result => {
-      this.data = result.content
-      console.log(result)
-      console.log(this.$store.getters.getUser)
-    })
-  }*/
+    },
 
+  },
 
 }
 </script>
@@ -129,7 +110,7 @@ export default {
     overflow-x:hidden;
     .Items{
       display: grid;
-      grid-template-columns: 5% 15% 70% 10%;
+      grid-template-columns: 50px 248px calc(100% - 448px) 150px;
       *{
         margin: 10px 15px;
       }

@@ -1,6 +1,8 @@
 <template>
-  <div class="search-bar my-3 mr-3">
-    <button @click="toggleside">Toggle sidebar: {{ this.$store.state.sided }}</button>
+  <div class="search-bar py-3 pr-3">
+    <button class="hamburger" @click="toggleside">
+      <b-icon-list></b-icon-list>
+    </button>
     <div class="search-area">
       <transition name="inputbox">
         <input v-if="clicked" type="text" class="searchinp h-full" id="dashboardsearchinp" @focusout="clicked=false">
@@ -39,6 +41,16 @@ export default {
 .search-bar {
   display: flex;
   justify-content: space-between;
+  background-color: $brown-100;
+}
+
+.hamburger {
+  padding: 0px 15px;
+  background-color: $brown-200;
+  color: $brown-100;
+  border-radius: 0 10px 10px 0;
+  outline: none;
+  border: none;
 }
 
 .search-area {
