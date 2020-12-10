@@ -6,14 +6,23 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     sided: true,
-    user:{},
-    log:{}
+    log:{},
+    user: null
   },
   getters:{
+    getUser: state=>{
+      if(state.user==null){
+        state.user= JSON.parse(localStorage.user);
+      }
+      return state.user
+    }
   },
   mutations: {
     toggleside(state){
       state.sided = !state.sided
+    },
+    changeuser(state){
+      state.user= JSON.parse(localStorage.user);
     }
   },
   actions: {

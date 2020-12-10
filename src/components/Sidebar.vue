@@ -46,7 +46,7 @@
 
     <div class="profile mt-auto mb-2">
       <div class="flex-col text">
-        <p>{{this.$store.state.user.Display_Name}}</p>
+        <p>{{this.$store.getters.getUser.Display_Name}}</p>
 
         <div class="links">
           <router-link to="/dashboard/settings" class="btn-link">Profile</router-link>

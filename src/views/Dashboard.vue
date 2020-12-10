@@ -25,9 +25,7 @@ export default {
     }
   },
   mounted() {
-    if(localStorage.user){
-      this.$store.state.user = JSON.parse(localStorage.user)
-    }else{
+    if( !this.$store.getters.getUser){
       this.$router.replace("/user/login")
     }
   }
