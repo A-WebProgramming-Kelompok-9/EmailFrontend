@@ -72,6 +72,7 @@ export default {
           $state.loaded()
           if(result.content.length<20){
             $state.complete()
+            console.log(this.data)
           }
         }else{
           console.log(result)
@@ -89,7 +90,8 @@ export default {
         }
       }).then(response => response.json()
       ).then(result => {
-        localStorage.openedmail =JSON.stringify(result.content[0])
+        localStorage.openedmail =JSON.stringify(result.content)
+        console.log(localStorage.openedmail)
         this.$router.push("/dashboard/view")
       })
     },
