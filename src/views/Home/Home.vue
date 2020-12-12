@@ -14,7 +14,7 @@
       <img src="@/assets/Speedwagon_sepia.jpg" alt="" class="image">
     </div>
 
-     <b-modal size="xl" id="showus">
+     <b-modal size="xl" id="showus" v-model="X">
       <div class="Frameouter">
           <div class="Frameinner">
           <div class="modal-body">
@@ -52,7 +52,12 @@
 import { component } from 'vue/types/umd'
 export default {
   name: "Home",
-    components: {}
+   data() {
+    return {
+      X:true
+    }
+   },
+    component: {}
 }
 </script>
 
