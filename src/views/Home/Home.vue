@@ -6,7 +6,7 @@
       </div>
       <p>S’Mail is sort of an email client application that enable configuring one or more email addresses to receive, read, compose and send emails from one user to another.</p>
       <div class="btnlist">
-        <button class="btn btn-outline-light" v-b-modal.showus>About Us</button>
+        <button class="btn btn-outline-light" v-on:click="X=true">About Us</button>
         <router-link to="/user/register" class="btn btn-dark">Join Us</router-link>
       </div>
     </div>
@@ -14,7 +14,7 @@
       <img src="@/assets/Speedwagon_sepia.jpg" alt="" class="image">
     </div>
 
-     <b-modal size="xl" id="showus" v-model="X">
+     <b-modal size="xl" id="showus">
       <div class="Frameouter">
           <div class="Frameinner">
           <div class="modal-body">
@@ -57,7 +57,7 @@ export default {
       X:true
     }
    },
-    component: {}
+    components: {}
 }
 </script>
 
