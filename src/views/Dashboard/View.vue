@@ -84,6 +84,7 @@ export default {
         }
       }).then(response => response.json()
       ).then(result => {
+        delete localStorage.openedmail
         this.$router.push("/dashboard")
         console.log(result)
       })
