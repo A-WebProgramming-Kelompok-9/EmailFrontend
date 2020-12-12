@@ -1,5 +1,8 @@
 <template>
   <div class="main">
+    <b-alert v-model="showDismissibleAlert" variant="danger" dismissible>
+      {{ errMsg }}
+    </b-alert>
     <div class="loaderContainer" v-if="isLoading">
       <hollow-dots-spinner
           :animation-duration="1000"
@@ -63,7 +66,9 @@ export default {
     return {
       Username: "",
       Password: "",
-      isLoading: false
+      isLoading: false,
+      errMsg: "",
+      showDismissibleAlert: false
     }
   },
   components: {
@@ -75,6 +80,11 @@ export default {
   },
   methods: {
     login() {
+      if (this.Username === "" || this.Password === "") {
+        this.errMsg = "Please fill all the form"
+        this.showDismissibleAlert = true
+        return
+      }
       this.isLoading = true;
       fetch("https://speedwagonmailback.herokuapp.com/account", {
         method: "POST",
