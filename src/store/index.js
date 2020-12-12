@@ -7,14 +7,14 @@ export default new Vuex.Store({
   state: {
     sided: true,
     log:{},
-    user: null
+    user: null,
   },
   getters:{
     getUser: state=>{
-      if(state.user==null){
+      if(state.user==null && localStorage.user){
         state.user= JSON.parse(localStorage.user);
       }
-      return state.user
+      return state.user;
     }
   },
   mutations: {
@@ -23,6 +23,9 @@ export default new Vuex.Store({
     },
     changeuser(state){
       state.user= JSON.parse(localStorage.user);
+    },
+    deleteUser(state){
+      state.user=null;
     }
   },
   actions: {

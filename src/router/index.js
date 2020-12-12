@@ -1,50 +1,42 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Land from '../views/Landing'
-import User from "../views/User"
-import Login from "../views/User/Login"
-import Register from "../views/User/Register"
-import Forget from "../views/User/Forget"
-import Home from '../views/Home/Home'
-import Features from '../views/Home/Features'
-import Review from '../views/Home/Reviews'
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
-        component: Land,
+        component: () => import('../views/Landing'),
         children: [{
             path: "",
             redirect: "home"
         },
         {
             path: 'home',
-            component: Home
+            component:() => import("../views/Home/Home"),
         },
         {
             path: 'features',
-            component: Features
+            component: () => import('../views/Home/Features'),
         },
         {
             path: 'reviews',
-            component: Review
+            component: () => import('../views/Home/Reviews'),
         },
         ]
     },
     {
         path: '/user',
-        component: User,
+        component: () => import("../views/User"),
         children: [{
             path: 'login',
-            component: Login,
+            component: () => import("../views/User/Login"),
         }, {
             path: 'register',
-            component: Register,
+            component: () => import('../views/User/Register'),
         }, {
             path: 'forget',
-            component: Forget,
+            component: () => import('../views/User/Forget'),
         },]
     },
     {

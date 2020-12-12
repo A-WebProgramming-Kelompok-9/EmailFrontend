@@ -9,6 +9,7 @@
   "dependencies": {
     "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",
+    "epic-spinners": "^1.1.0",
     "vue": "^2.6.11",
     "vue-infinite-loading": "^2.4.5",
     "vue-router": "^3.2.0",

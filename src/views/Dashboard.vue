@@ -4,6 +4,7 @@
       <sidebar v-if="$store.state.sided" class="sidebar"></sidebar>
     </transition>
     <div :class="'content-container '+sidedclass">
+      <searchbar></searchbar>
       <router-view></router-view>
     </div>
   </div>
@@ -11,10 +12,12 @@
 
 <script>
 import sidebar from "@/components/Sidebar"
+import searchbar from "@/components/Search"
 export default {
   name: "Dashboard",
   components: {
     sidebar,
+    searchbar
   },
   computed: {
     sidedclass() {

@@ -1,6 +1,5 @@
 <template>
   <div id="maincontent">
-    <searchbar></searchbar>
     <div id="settings" class="p-3">
       <h1>Settings</h1>
       <div id="Myaccount-area">
@@ -67,12 +66,9 @@
 </template>
 
 <script>
-import searchbar from "@/components/Dashboard/Search"
-
 export default {
   name: "Settings",
   components: {
-    searchbar
   },
 }
 </script>

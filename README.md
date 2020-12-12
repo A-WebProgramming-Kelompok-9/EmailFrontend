@@ -1,7 +1,7 @@
 ***
-# Link Repository:
-* ### [Github - Frontend](https://github.com/A-WebProgramming-Kelompok-9/EmailFrontend)
-* ### [Github - Backend](https://github.com/A-WebProgramming-Kelompok-9/EmailBackend)
+## Link Repository:
+* #### [Github - Frontend](https://github.com/A-WebProgramming-Kelompok-9/EmailFrontend)
+* #### [Github - Backend](https://github.com/A-WebProgramming-Kelompok-9/EmailBackend)
 ***
 
 ![](src/assets/Speedwagon.jpg)

@@ -1,13 +1,13 @@
 <template>
   <div class="maincontainer">
     <div class="main">
-      <h2 id="mailTitle" class="px-5">{{users.title}}</h2>
+      <h2 id="mailTitle" class="px-5">{{mail.title}}</h2>
       <div class="mail-header">
         <!--Back Button-->
         <router-link
           class="btn btn-outline-light my-1"
           id="backbtn"
-          to="/dashboard/10"
+          to="/dashboard"
         >
           <BIcon icon="arrow-left"></BIcon>
         </router-link>
@@ -22,8 +22,8 @@
           />
           <div class="media-body mx-3">
             <h4 id="sender">
-              From : {{users.username}} &lt;<router-link to="#" class="btn-link"
-                >{{users.username}}@swagon.com</router-link
+              From : {{mail.Sender_Username}} &lt;<router-link to="#" class="btn-link"
+                >{{mail.Sender_Username}}@swagon.com</router-link
               >&gt;
               <!--Block Button-->
               <router-link class="btn btn-red btn-sm" to="/Dashboard/10/#Block">
@@ -31,8 +31,8 @@
               </router-link>
             </h4>
             <h4 id="receiver">
-              To: {{users.receiver}}&lt;<router-link to="#" class="btn-link"
-                >{{users.receiver}}@swagon.com</router-link
+              To: {{user}}&lt;<router-link to="#" class="btn-link"
+                >{{user}}@swagon.com</router-link
               >&gt;
             </h4>
           </div>
@@ -54,7 +54,7 @@
         </div>
       </div>
       <div class="mail-content">
-        <textarea class="text" rows="" readonly v-model="users.content">
+        <textarea class="text" rows="" readonly v-model="mail.content">
         </textarea>
       </div>
     </div>
@@ -67,24 +67,10 @@ export default {
   components: {},
   data() {
     return {
-      users: {},
+      mail: JSON.parse(localStorage.openedmail),
+      user: this.$store.getters.getUser.Username
     }
   },
-  mounted() {
-    if (localStorage.content) {
-      delete localStorage.content
-      console.log(localStorage.content)
-    } else {
-      fetch("https://speedwagonmailback.herokuapp.com/email/find")
-          .then(response => response.json())
-          .then(result => {
-            console.log(this.users)
-            this.users = result
-            console.log(this.users)
-            localStorage.content = result
-          });
-    }
-  }
 };
 </script>
 

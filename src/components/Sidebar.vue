@@ -50,7 +50,7 @@
 
         <div class="links">
           <router-link to="/dashboard/settings" class="btn-link">Profile</router-link>
-          <router-link to="/" class="btn-link">Logout</router-link>
+          <button v-on:click="clearstorage" class="btn-link" >Logout</button>
         </div>
       </div>
       <img
@@ -67,8 +67,14 @@
 export default {
   name: "Sidebar",
   components: {},
-  mounted(){
-  }
+  methods: {
+    clearstorage(){
+      delete localStorage.user;
+      delete localStorage.openedmail;
+      this.$store.commit("deleteUser")
+      this.$router.push("/")
+    }
+  },
 }
 </script>
 
@@ -103,6 +109,8 @@ export default {
   .btn-link {
     color: $gray-100;
     background-color: rgba($brown-400, 0.8);
+    outline: none;
+    border: none;
 
     &:hover {
       background-color: rgba($brown-400, 0.5);
