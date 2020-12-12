@@ -49,13 +49,15 @@
 </template>
 
 <script>
+import { component } from 'vue/types/umd'
 export default {
   name: "Home",
    data() {
     return {
-      X:true,
+      X:true
     }
    },
+    component: {}
 }
 </script>
 
