@@ -2,7 +2,7 @@
   <div class="boxing">
     <div class="main">
       <div class="mx-3">
-        <textInp name="Title" placeholder="Title" type="text" v-model="title"></textInp>
+        <textInp placeholder="Title" type="text" v-model="title"></textInp>
       </div>
       <div class="mail-header">
         <!--Back Button-->
@@ -17,8 +17,8 @@
         <div class="media m-1">
           <div class="media-body mx-3">
             <h4>
-              From : {{users.username}} &lt;<router-link to="#" class="btn-link"
-                >{{users.username}}@swagon.com</router-link
+              From : {{users.Username}} &lt;<router-link to="#" class="btn-link"
+                >{{users.Username}}@swagon.com</router-link
               >&gt;
             </h4>
             <div class="input-group">
@@ -46,7 +46,7 @@
             ><BIcon icon="Archive-fill"></BIcon>
             Save
           </router-link>
-          <router-link class="btn btn-outline-light btn-sm align-top" to="#"
+          <router-link class="btn btn-outline-light btn-sm align-top" to="/dashboard"
             ><BIcon icon="trash-fill"></BIcon>
             Delete
           </router-link>
@@ -68,7 +68,7 @@ export default {
   },
   data() {
     return {
-      users: {},
+      users: this.$store.getters.getUser,
       title: "",
       username: "",
       receiver: "",
@@ -82,7 +82,7 @@ export default {
         method: "POST",
         body: JSON.stringify({
           title: this.title,
-          username: this.users.username,
+          username: this.users.Username,
           receiver: this.receiver,
           content: this.content,
           attachment: ""
@@ -92,6 +92,7 @@ export default {
         }
       }).then(response => response.json()
       ).then(result => {
+        this.$router.push("/dashboard")
         console.log(result)
       })
     }
