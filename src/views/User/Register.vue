@@ -1,5 +1,8 @@
 <template>
   <div id="main">
+    <b-alert v-model="showDismissibleAlert" variant="danger" dismissible>
+      {{errMsg}}
+    </b-alert>
     <div class="loaderContainer" v-if="isLoading">
       <hollow-dots-spinner
           :animation-duration="1000"
@@ -35,7 +38,7 @@
       <textinp name="confirm-password" type="password" v-model="ConfirmPassword"
                placeholder="Confirm Password"></textinp>
       <div class="checkinput">
-        <input type="checkbox" id="ConfirmPolicy">
+        <input type="checkbox" v-model="checkTerms">
         <small for="ConfirmPolicy">
           I have read and agree to the terms of service and privacy
           policy</small>
@@ -48,7 +51,7 @@
     <div class="alternate">
       <p class="norm">
         Already have a SpeedMail Account ?
-        <router-link to="/user/login">
+        <router-link class="btn-link" to="/user/login">
           Sign In
         </router-link>
       </p>
@@ -69,7 +72,10 @@ export default {
       Password: "",
       Alt_Email: "",
       ConfirmPassword: "",
-      isLoading: false
+      isLoading: false,
+      checkTerms:false,
+      showDismissibleAlert: false,
+      errMsg: ""
     }
   },
   components: {
@@ -81,7 +87,19 @@ export default {
   },
   methods: {
     insertdata() {
+      if(this.Username===""||this.Password===""||this.Alt_Email===""||this.ConfirmPassword===""){
+        this.errMsg= "Please fill all the form"
+        this.showDismissibleAlert=true
+        return;
+      }
       if (this.Password != this.ConfirmPassword) {
+        this.errMsg= "Password doesn't match"
+        this.showDismissibleAlert=true
+        return;
+      }
+      if (this.checkTerms!=true) {
+        this.errMsg= "Please check our terms of service"
+        this.showDismissibleAlert=true
         return;
       }
       this.isLoading = true;

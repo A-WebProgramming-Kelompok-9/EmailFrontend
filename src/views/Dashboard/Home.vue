@@ -16,7 +16,7 @@
         <h5>{{ i.Title }}</h5>
         <h5>{{ i.Send_Date.split("T")[0].split("-").reverse().join("-") }}</h5>
       </div>
-      <button v-on:click="addmail">AddEmail</button>
+      <!--button v-on:click="addmail">AddEmail</button-->
       <infinite-loading @infinite="loadMail">
         <div slot="no-more">Loaded All Messages</div>
         <div slot="no-results">There are no Email</div>
@@ -143,7 +143,9 @@ export default {
     .Items {
       display: grid;
       grid-template-columns: 50px 248px calc(100% - 448px) 150px;
-
+      &:hover{
+        background-color:rgba(brown,0.2)
+      }
       * {
         margin: 10px 15px;
       }
