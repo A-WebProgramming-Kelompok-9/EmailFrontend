@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { component } from 'vue/types/umd'
+import { components } from 'vue/types/umd'
 export default {
   name: "Home",
    data() {
