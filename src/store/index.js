@@ -8,6 +8,8 @@ export default new Vuex.Store({
     sided: true,
     log:{},
     user: null,
+    Email:[],
+    count: 0,
   },
   getters:{
     getUser: state=>{
@@ -15,7 +17,7 @@ export default new Vuex.Store({
         state.user= JSON.parse(localStorage.user);
       }
       return state.user;
-    }
+    },
   },
   mutations: {
     toggleside(state){
