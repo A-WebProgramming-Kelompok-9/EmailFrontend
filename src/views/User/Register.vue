@@ -12,49 +12,51 @@
           class="loader"
       />
     </div>
-    <h4>Start Using Smail</h4>
-    <p style="font-size: 15px">
-      Join Smail, to write your own mail, send your mail and many more
-    </p>
-    <h5>Register With</h5>
-    <div class="registerwith">
-      <router-link to="/Dashboard/0" class="btn btn-link">
-        <FacebookIcon></FacebookIcon>
-        Facebook
-      </router-link>
-      <router-link to="/Dashboard/0" class="btn btn-link">
-        <TwitterIcon></TwitterIcon>
-        Twitter
-      </router-link>
-      <router-link to="/Dashboard/0" class="btn btn-link">
-        <GoogleIcon></GoogleIcon>
-        Google
-      </router-link>
-    </div>
-    <div class="register-form">
-      <textinp name="alt-email" type="email" v-model="Alt_Email" placeholder="Alternate Email"></textinp>
-      <textinp name="username" type="text" v-model="Username" placeholder="Username"></textinp>
-      <textinp name="password" type="password" v-model="Password" placeholder="Password"></textinp>
-      <textinp name="confirm-password" type="password" v-model="ConfirmPassword"
-               placeholder="Confirm Password"></textinp>
-      <div class="checkinput">
-        <input type="checkbox" v-model="checkTerms">
-        <small for="ConfirmPolicy">
-          I have read and agree to the terms of service and privacy
-          policy</small>
-      </div>
-      <button type="button" class="btn btn-outline-light" v-on:click="insertdata">
-        <BIcon icon="plus" aria-hidden="true"></BIcon>
-        Create Account
-      </button>
-    </div>
-    <div class="alternate">
-      <p class="norm">
-        Already have a SpeedMail Account ?
-        <router-link class="btn-link" to="/user/login">
-          Sign In
-        </router-link>
+    <div>
+      <h4>Start Using Smail</h4>
+      <p style="font-size: 15px">
+        Join Smail, to write your own mail, send your mail and many more
       </p>
+      <h5>Register With</h5>
+      <div class="registerwith">
+        <router-link to="/Dashboard/0" class="btn btn-link">
+          <FacebookIcon></FacebookIcon>
+          Facebook
+        </router-link>
+        <router-link to="/Dashboard/0" class="btn btn-link">
+          <TwitterIcon></TwitterIcon>
+          Twitter
+        </router-link>
+        <router-link to="/Dashboard/0" class="btn btn-link">
+          <GoogleIcon></GoogleIcon>
+          Google
+        </router-link>
+      </div>
+      <div class="register-form">
+        <textinp name="alt-email" type="email" v-model="Alt_Email" placeholder="Alternate Email"></textinp>
+        <textinp name="username" type="text" v-model="Username" placeholder="Username"></textinp>
+        <textinp name="password" type="password" v-model="Password" placeholder="Password"></textinp>
+        <textinp name="confirm-password" type="password" v-model="ConfirmPassword"
+                 placeholder="Confirm Password"></textinp>
+        <div class="checkinput">
+          <input type="checkbox" id="ConfirmPolicy">
+          <small for="ConfirmPolicy">
+            I have read and agree to the terms of service and privacy
+            policy</small>
+        </div>
+        <button type="button" class="btn btn-outline-light" v-on:click="insertdata">
+          <BIcon icon="plus" aria-hidden="true"></BIcon>
+          Create Account
+        </button>
+      </div>
+      <div class="alternate">
+        <p class="norm">
+          Already have a SpeedMail Account ?
+          <router-link to="/user/login">
+            Sign In
+          </router-link>
+        </p>
+      </div>
     </div>
   </div>
 </template>
