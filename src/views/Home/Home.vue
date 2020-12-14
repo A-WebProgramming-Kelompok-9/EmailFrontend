@@ -56,7 +56,7 @@ export default {
       X:true
     }
    },
-    component: {}
+    components: {}
 }
 </script>
 
