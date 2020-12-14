@@ -104,6 +104,10 @@ export default {
         this.showDismissibleAlert=true
         return;
       }
+      if (RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(this.Alt_Email)) {
+          this.errMsg= "Incorrect input"
+          this.showDismissibleAlert=true
+      }
       this.isLoading = true;
       fetch("https://speedwagonmailback.herokuapp.com/account/add", {
         method: "POST",
