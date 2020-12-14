@@ -1,7 +1,7 @@
 <template>
   <div class="maincontainer">
     <div class="main">
-      <h2 id="mailTitle" class="px-5">{{mail.title}}</h2>
+      <h2 id="mailTitle" class="px-5">{{mail.Title}}</h2>
       <div class="mail-header">
         <!--Back Button-->
         <router-link
@@ -39,10 +39,10 @@
         </div>
         <!--Triple Button-->
         <div class="tri-btn ml-auto">
-          <router-link class="btn btn-outline-light btn-sm align-top" to="#"
+          <button class="btn btn-outline-light btn-sm align-top" to="#" v-on:click="delmail"
             ><BIcon icon="trash-fill"></BIcon>
             Delete
-          </router-link>
+          </button>
           <router-link class="btn btn-outline-light btn-sm align-top" to="#"
             ><BIcon icon="skip-forward-fill"></BIcon>
             Forward
@@ -54,7 +54,7 @@
         </div>
       </div>
       <div class="mail-content">
-        <textarea class="text" rows="" readonly v-model="mail.content">
+        <textarea class="text" rows="" readonly v-model="mail.Content">
         </textarea>
       </div>
     </div>
@@ -71,6 +71,25 @@ export default {
       user: this.$store.getters.getUser.Username
     }
   },
+  methods:{
+    delmail() {
+      this.isLoading = true;
+      fetch("https://speedwagonmailback.herokuapp.com/email/del", {
+        method: "POST",
+        body: JSON.stringify({
+          id: this.mail._id
+        }),
+        headers: {
+          "content-type": "application/json"
+        }
+      }).then(response => response.json()
+      ).then(result => {
+        delete localStorage.openedmail
+        this.$router.push("/dashboard")
+        console.log(result)
+      })
+    }
+  }
 };
 </script>
 

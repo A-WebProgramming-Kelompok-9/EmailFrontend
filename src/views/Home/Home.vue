@@ -48,6 +48,7 @@
   </div>
 </template>
 
+
 <script>
 export default {
   name: "Home",
@@ -58,6 +59,7 @@ export default {
    },
     components: {}
 }
+
 </script>
 
 <style scoped lang=scss>
@@ -123,7 +125,6 @@ export default {
         }
     }
 }
-
 .Text{
     display: flex;
     flex-direction: column;
