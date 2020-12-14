@@ -6,7 +6,7 @@
       </div>
       <p>S’Mail is sort of an email client application that enable configuring one or more email addresses to receive, read, compose and send emails from one user to another.</p>
       <div class="btnlist">
-        <button class="btn btn-outline-light" v-b-modal.showus>About Us</button>
+        <button class="btn btn-outline-light" v-on:click="X=true">About Us</button>
         <router-link to="/user/register" class="btn btn-dark">Join Us</router-link>
       </div>
     </div>
@@ -14,11 +14,12 @@
       <img src="@/assets/Speedwagon_sepia.jpg" alt="" class="image">
     </div>
 
-    <!-- sizenya bisa 3 macem xl, lg, sm-->
-    <b-modal size="xl" id="showus">
+     <b-modal size="xl" id="showus" v-model="X">
       <div class="Frameouter">
           <div class="Frameinner">
-          <div class="Background"></div>
+          <div class="modal-body">
+            <img src = "@/assets/Speed.png">
+          </div>
           <div class="header">
               <div class="title">
                   <h1>Speedwagon Fo'un</h1>
@@ -44,10 +45,6 @@
       </div>
     </div>
   </b-modal>
-  
-
-
-
   </div>
 </template>
 
@@ -55,8 +52,12 @@
 <script>
 export default {
   name: "Home",
-  components: {}
-  
+   data() {
+    return {
+      X:true
+    }
+   },
+    components: {}
 }
 
 </script>
@@ -85,7 +86,6 @@ export default {
   }
 }
 
-
 .Frameouter{
     position: relative;
     width: 802px;
@@ -101,16 +101,14 @@ export default {
     height: 570px;
     left: 22px;
     top: 23px;
-
     background: #DBEFF0;
-    .Background{
+    .modal-body{
         position: absolute;
         width: 755px;
         height: 571px;
-        left: -1px;
-        top: -1px;
-    
-        background: url('/assets/Speed.png'); 
+        justify-content: center;
+        padding-left: 3cm;
+        padding-top: 1.5cm;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         opacity: 0.1;
@@ -140,7 +138,6 @@ export default {
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
-
     color: #7A6868;
 }
 
@@ -150,16 +147,12 @@ export default {
     height: 44px;
     left: 409px;
     top: 440px;
-
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
     text-align: right;
-
     color: #000000;
 }
-
-
 </style>
