@@ -69,7 +69,8 @@ export default {
       Password: "",
       isLoading: false,
       errMsg: "",
-      showDismissibleAlert: false
+      showDismissibleAlert: false,
+      reg:/[^\p{L}\d\s@#]/u
     }
   },
   components: {
@@ -86,7 +87,7 @@ export default {
         this.showDismissibleAlert = true
         return
       }
-      if (RegExp(/[^\p{L}\d\s@#]/u).test(this.Username)) {
+      if (this.reg.test(this.Username)) {
         this.errMsg = "Username cannot contains any symbol"
         this.showDismissibleAlert = true
         return

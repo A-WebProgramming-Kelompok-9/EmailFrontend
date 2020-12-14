@@ -39,7 +39,9 @@ export default {
       Username: "",
       Alt_Email:"",
       errMsg: "",
-      showDismissibleAlert: false
+      showDismissibleAlert: false,
+      reg:/[^\p{L}\d\s@#]/u,
+      reg1:/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
     }
   },
   components: {
@@ -49,6 +51,16 @@ export default {
     newdata() {
       if (this.Username === "" || this.Alt_Email === "") {
         this.errMsg = "Please fill all the form"
+        this.showDismissibleAlert = true
+        return
+      }
+       if (this.reg1.test(this.Alt_Email)) {
+          this.errMsg= "Your Email is Invalid"
+          this.showDismissibleAlert=true
+          return
+      }
+      if (this.reg.test(this.Username)) {
+        this.errMsg = "Username cannot contains any symbol"
         this.showDismissibleAlert = true
         return
       }
