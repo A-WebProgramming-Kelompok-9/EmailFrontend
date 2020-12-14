@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import bcrypt from 'bcryptjs'
 import textinp from "@/components/TextInputGroup"
 import {FacebookIcon, GoogleIcon, TwitterIcon} from 'vue-simple-icons'
 import {HollowDotsSpinner} from 'epic-spinners'
@@ -96,7 +97,7 @@ export default {
         method: "POST",
         body: JSON.stringify({
           usern: this.Username,
-          pass: this.Password
+          pass: bcrypt.hashSync(this.Password, "")
         }),
         headers: {
           "content-type": "application/json"
