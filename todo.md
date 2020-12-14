@@ -7,7 +7,7 @@ so far yg gw tw blom bisa
 - saving pic2
 - about us
 - klasifikasi email2
-- loading screen
+- ~~loading screen~~
 - dashboard email list background
   
 

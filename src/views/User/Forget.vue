@@ -1,5 +1,8 @@
 <template>
   <div id="main">
+    <b-alert v-model="showDismissibleAlert" variant="danger" dismissible>
+      {{ errMsg }}
+    </b-alert>
     <h4>Recover Account</h4>
     <div class="intro">
       <p>Please insert your username and alternate email address</p>
@@ -34,7 +37,9 @@ export default {
   data() {
     return {
       Username: "",
-      Alt_Email:""
+      Alt_Email:"",
+      errMsg: "",
+      showDismissibleAlert: false
     }
   },
   components: {
@@ -42,6 +47,11 @@ export default {
   },
   methods: {
     newdata() {
+      if (this.Username === "" || this.Alt_Email === "") {
+        this.errMsg = "Please fill all the form"
+        this.showDismissibleAlert = true
+        return
+      }
       fetch("https://speedwagonmailback.herokuapp.com/account/forget", {
         method: "POST",
         body: JSON.stringify({
