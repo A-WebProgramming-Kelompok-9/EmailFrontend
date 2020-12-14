@@ -86,7 +86,7 @@ export default {
         return
       }
       if (RegExp(/[^\p{L}\d\s@#]/u).test(this.Username)) {
-        this.errMsg = "Username cannot contain a single symbol"
+        this.errMsg = "Username cannot contains any symbol"
         this.showDismissibleAlert = true
         return
       }
