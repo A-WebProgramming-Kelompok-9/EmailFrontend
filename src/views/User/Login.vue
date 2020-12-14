@@ -85,6 +85,11 @@ export default {
         this.showDismissibleAlert = true
         return
       }
+      if (RegExp(/[^\p{L}\d\s@#]/u).test(this.Username)) {
+        this.errMsg = "Username cannot contains any symbol"
+        this.showDismissibleAlert = true
+        return
+      }
       this.isLoading = true;
       fetch("https://speedwagonmailback.herokuapp.com/account", {
         method: "POST",
