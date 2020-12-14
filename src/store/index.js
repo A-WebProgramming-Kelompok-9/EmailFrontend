@@ -13,7 +13,7 @@ export default new Vuex.Store({
   },
   getters:{
     getUser: state=>{
-      if(state.user==null && localStorage.user){
+      if(state.user==null){
         state.user= JSON.parse(localStorage.user);
       }
       return state.user;

@@ -57,7 +57,6 @@
 </template>
 
 <script>
-import bcrypt from 'bcryptjs'
 import textinp from "@/components/TextInputGroup"
 import {FacebookIcon, GoogleIcon, TwitterIcon} from 'vue-simple-icons'
 import {HollowDotsSpinner} from 'epic-spinners'
@@ -94,28 +93,44 @@ export default {
         return
       }
       this.isLoading = true;
-      fetch("https://speedwagonmailback.herokuapp.com/account", {
-        method: "POST",
-        body: JSON.stringify({
-          usern: this.Username,
-          pass: bcrypt.hashSync(this.Password, "")
-        }),
-        headers: {
-          "content-type": "application/json"
-        }
-      }).then(response => response.json()
-      ).then(result => {
-        if (result.status == "OK" && result.content != null) {
-          localStorage.user = JSON.stringify(result.content);
-          this.$store.commit("changeuser")
+
+      const msgBuffer = new TextEncoder().encode(this.Password);
+
+      // hash the message
+      crypto.subtle.digest('SHA-256', msgBuffer).then(hashBuffer=>{
+        // convert ArrayBuffer to Array
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+        // convert bytes to hex string
+        const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+        fetch("https://speedwagonmailback.herokuapp.com/account", {
+          method: "POST",
+          body: JSON.stringify({
+            usern: this.Username,
+            pass: hashHex
+          }),
+          headers: {
+            "content-type": "application/json"
+          }
+        }).then(response => response.json()
+        ).then(result => {
+          if (result.status == "OK" && result.content != null) {
+            localStorage.user = JSON.stringify(result.content);
+            this.$store.commit("changeuser")
+            this.isLoading = false
+            this.$router.push("/dashboard")
+          } else {
+            this.errMsg = "Wrong password or username doesn't exist"
+            this.showDismissibleAlert = true
+          }
+        }).finally(() => {
           this.isLoading = false
-          this.$router.push("/dashboard")
-        } else {
-          console.log(result)
-        }
-      }).finally(() => {
-        this.isLoading = false
-      })
+        })
+      });
+
+
+
+
     }
   },
 }

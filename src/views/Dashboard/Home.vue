@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     loadMail($state) {
-      fetch("http://localhost:3000/email", {
+      fetch("https://speedwagonmailback.herokuapp.com/email", {
         method: "POST",
         body: JSON.stringify({
           username: this.$store.getters.getUser.Username,

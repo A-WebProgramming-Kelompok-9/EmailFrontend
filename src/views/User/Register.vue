@@ -62,7 +62,6 @@
 </template>
 
 <script>
-import bcrypt from 'bcryptjs'
 import textinp from "@/components/TextInputGroup"
 import {FacebookIcon, TwitterIcon, GoogleIcon} from 'vue-simple-icons'
 import {HollowDotsSpinner} from 'epic-spinners'
@@ -79,8 +78,6 @@ export default {
       checkTerms: false,
       showDismissibleAlert: false,
       errMsg: "",
-      reg:/[^\p{L}\d\s@#]/u,
-      reg1:/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
     }
   },
   components: {
@@ -107,42 +104,51 @@ export default {
         this.showDismissibleAlert = true
         return;
       }
-      if (this.reg1.test(this.Alt_Email)) {
+      if (!RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/).test(this.Alt_Email)) {
           this.errMsg= "Your Email is Invalid"
           this.showDismissibleAlert=true
           return
       }
-      if (this.reg.test(this.Username)) {
+      if (RegExp(/[^\p{L}\d\s@#]/u).test(this.Username)) {
         this.errMsg = "Username cannot contains any symbol"
         this.showDismissibleAlert = true
         return
       }
       this.isLoading = true;
-      fetch("https://speedwagonmailback.herokuapp.com/account/add", {
-        method: "POST",
-        body: JSON.stringify({
-          usern: this.Username,
-          pass: bcrypt.hashSync(this.Password, ""),
-          altermail: this.Alt_Email
+      const msgBuffer = new TextEncoder().encode(this.Password);
 
-        }),
-        headers: {
-          "content-type": "application/json"
-        }
-      }).then(response => response.json()
-      ).then(result => {
-        if (result.status == "OK") {
-          localStorage.user = JSON.stringify(result.content);
-          this.$store.commit("changeuser")
-          this.isLoading = false
-          this.$router.push("/dashboard/")
-        } else {
-          console.log(result)
-        }
-      }).finally(() => {
-            this.isLoading = false;
+      // hash the message
+      crypto.subtle.digest('SHA-256', msgBuffer).then((hashBuffer)=>{
+        // convert ArrayBuffer to Array
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        // convert bytes to hex string
+        const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+        fetch("https://speedwagonmailback.herokuapp.com/account/add", {
+          method: "POST",
+          body: JSON.stringify({
+            usern: this.Username,
+            pass: hashHex,
+            altermail: this.Alt_Email
+          }),
+          headers: {
+            "content-type": "application/json"
           }
-      )
+        }).then(response => response.json()
+        ).then(result => {
+          if (result.status == "OK") {
+            localStorage.user = JSON.stringify(result.content);
+            this.$store.commit("changeuser")
+            this.isLoading = false
+            this.$router.push("/dashboard/")
+          } else {
+            this.errMsg = "Username already exist, please choose another username"
+            this.showDismissibleAlert = true
+          }
+        }).finally(() => {
+              this.isLoading = false;
+            }
+        )
+      });
     }
   }
 }

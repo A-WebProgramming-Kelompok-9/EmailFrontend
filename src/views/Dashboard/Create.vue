@@ -92,7 +92,7 @@ export default {
   methods: {
     sendEmail() {
       this.isLoading = true;
-      fetch("http://localhost:3000/email/add", {
+      fetch("https://speedwagonmailback.herokuapp.com/email/add", {
         method: "POST",
         body: JSON.stringify({
           title: this.title,
@@ -114,19 +114,6 @@ export default {
     }
   },
   mounted() {
-    if (localStorage.content) {
-      delete localStorage.content
-      console.log(localStorage.content)
-    } else {
-      fetch("http://localhost:3000/email/find")
-          .then(response => response.json())
-          .then(result => {
-            console.log(this.users)
-            this.users = result
-            console.log(this.users)
-            localStorage.content = result
-          });
-    }
   }
 };
 </script>
