@@ -10,7 +10,7 @@
       />
     </div>
     <div class="EmailContainer">
-      <div v-for="i in data" :key="i._id" class="Items" v-on:click="getmail(i._id)">
+      <div v-for="i in Email" :key="i._id" class="Items" v-on:click="getmail(i._id)">
         <b-icon icon="star"></b-icon>
         <h5>{{ i.Sender_Username }}</h5>
         <h5>{{ i.Title }}</h5>
@@ -37,37 +37,22 @@ export default {
   },
   data() {
     return {
-      data: [],
       busy: false,
-      count: 0,
       isLoading: false
     }
   },
+  computed: {
+    Email() {
+      return this.$store.state.Email;
+    }
+  },
   methods: {
-    addmail() {
-      fetch("https://speedwagonmailback.herokuapp.com/email/add", {
-        method: "POST",
-        body: JSON.stringify({
-          title: "Test Email",
-          username: this.$store.getters.getUser.Username,
-          receiver: this.$store.getters.getUser.Username,
-          content: "TEST 12345",
-          attachment: ""
-        }),
-        headers: {
-          "content-type": "application/json"
-        }
-      }).then(response => response.json()
-      ).then(result => {
-        console.log(result)
-      })
-    },
     loadMail($state) {
-      fetch("https://speedwagonmailback.herokuapp.com/email", {
+      fetch("http://localhost:3000/email", {
         method: "POST",
         body: JSON.stringify({
           username: this.$store.getters.getUser.Username,
-          page: this.count
+          page: this.$store.state.count
         }),
         headers: {
           "content-type": "application/json"
@@ -76,9 +61,9 @@ export default {
       ).then(result => {
         if (result.status == "OK") {
           for (let x of result.content) {
-            this.data.push(x)
+            this.$store.state.Email.push(x)
           }
-          this.count += 1;
+          this.$store.state.count += 1;
           $state.loaded()
           if (result.content.length < 20) {
             $state.complete()
@@ -100,6 +85,7 @@ export default {
         }
       }).then(response => response.json()
       ).then(result => {
+        console.log(result)
         localStorage.openedmail = JSON.stringify(result.content)
         this.isLoading = false;
         this.$router.push("/dashboard/view")

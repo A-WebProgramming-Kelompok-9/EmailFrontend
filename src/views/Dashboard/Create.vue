@@ -1,5 +1,15 @@
 <template>
   <div class="boxing">
+
+    <div class="loaderContainer" v-if="isLoading">
+      <hollow-dots-spinner
+          :animation-duration="1000"
+          :dot-size="15"
+          :dots-num="3"
+          color="#ff1d5e"
+          class="loader"
+      />
+    </div>
     <div class="main">
       <div class="mx-3">
         <textInp placeholder="Title" type="text" v-model="title"></textInp>
@@ -61,10 +71,12 @@
 
 <script>
 import textInp from "@/components/TextInputGroup.vue";
+import {HollowDotsSpinner} from 'epic-spinners'
 export default {
   name: "Create",
   components: {
     textInp,
+    HollowDotsSpinner
   },
   data() {
     return {
@@ -73,12 +85,14 @@ export default {
       username: "",
       receiver: "",
       content: "",
-      attachment: ""
+      attachment: "",
+      isLoading: false,
     }
   },
   methods: {
     sendEmail() {
-      fetch("https://speedwagonmailback.herokuapp.com/email/add", {
+      this.isLoading = true;
+      fetch("http://localhost:3000/email/add", {
         method: "POST",
         body: JSON.stringify({
           title: this.title,
@@ -94,15 +108,17 @@ export default {
       ).then(result => {
         this.$router.push("/dashboard")
         console.log(result)
+      }).finally(()=>{
+        this.isLoading = false
       })
     }
   },
   mounted() {
-    if (localStorage. content) {
+    if (localStorage.content) {
       delete localStorage.content
       console.log(localStorage.content)
     } else {
-      fetch("https://speedwagonmailback.herokuapp.com/email/find")
+      fetch("http://localhost:3000/email/find")
           .then(response => response.json())
           .then(result => {
             console.log(this.users)
@@ -116,12 +132,26 @@ export default {
 </script>
 
 <style scoped lang=scss>
-html {
-  background-color: $brown-200;
-}
 .boxing {
   display: flex;
+  position: relative;
 
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .loaderContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(black, 0.2);
+  }
   .main {
     display: flex;
     flex-direction: column;

@@ -1,7 +1,7 @@
 <template>
   <div id="main">
     <b-alert v-model="showDismissibleAlert" variant="danger" dismissible>
-      {{errMsg}}
+      {{ errMsg }}
     </b-alert>
     <div class="loaderContainer" v-if="isLoading">
       <hollow-dots-spinner
@@ -39,7 +39,7 @@
         <textinp name="confirm-password" type="password" v-model="ConfirmPassword"
                  placeholder="Confirm Password"></textinp>
         <div class="checkinput">
-          <input type="checkbox" id="ConfirmPolicy">
+          <input type="checkbox" id="ConfirmPolicy" v-model="checkTerms">
           <small for="ConfirmPolicy">
             I have read and agree to the terms of service and privacy
             policy</small>
@@ -75,7 +75,7 @@ export default {
       Alt_Email: "",
       ConfirmPassword: "",
       isLoading: false,
-      checkTerms:false,
+      checkTerms: false,
       showDismissibleAlert: false,
       errMsg: ""
     }
@@ -89,19 +89,19 @@ export default {
   },
   methods: {
     insertdata() {
-      if(this.Username===""||this.Password===""||this.Alt_Email===""||this.ConfirmPassword===""){
-        this.errMsg= "Please fill all the form"
-        this.showDismissibleAlert=true
+      if (this.Username === "" || this.Password === "" || this.Alt_Email === "" || this.ConfirmPassword === "") {
+        this.errMsg = "Please fill all the form"
+        this.showDismissibleAlert = true
         return;
       }
       if (this.Password != this.ConfirmPassword) {
-        this.errMsg= "Password doesn't match"
-        this.showDismissibleAlert=true
+        this.errMsg = "Password doesn't match"
+        this.showDismissibleAlert = true
         return;
       }
-      if (this.checkTerms!=true) {
-        this.errMsg= "Please check our terms of service"
-        this.showDismissibleAlert=true
+      if (this.checkTerms != true) {
+        this.errMsg = "Please check our terms of service"
+        this.showDismissibleAlert = true
         return;
       }
       if (RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(this.Alt_Email)) {
@@ -166,6 +166,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 100;
     background: rgba(black, 0.2);
   }
 

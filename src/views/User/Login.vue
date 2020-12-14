@@ -1,8 +1,6 @@
 <template>
   <div class="main">
-    <b-alert v-model="showDismissibleAlert" variant="danger" dismissible>
-      {{ errMsg }}
-    </b-alert>
+
     <div class="loaderContainer" v-if="isLoading">
       <hollow-dots-spinner
           :animation-duration="1000"
@@ -12,6 +10,9 @@
           class="loader"
       />
     </div>
+    <b-alert v-model="showDismissibleAlert" variant="danger" dismissible>
+      {{ errMsg }}
+    </b-alert>
     <div class="loginwith">
       <h4>Login</h4>
       <div class="loginopt my-4">
@@ -148,6 +149,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 100;
     background: rgba(black, 0.2);
   }
 
